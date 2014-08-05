@@ -1,11 +1,11 @@
-// MainView = Backbone.View.extend({
+MainView = Backbone.View.extend({
 
-// 		className: 'allStickies',
+		className: 'allStickies',
 
-// 		events:{
+		events:{
 
 
 
-// 		}
+		}
 
-// });
+});

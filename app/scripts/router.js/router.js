@@ -7,6 +7,8 @@ var Router = Backbone.Router.extend({
 
 	},
 
+
+
 	home: function(){
 		var currentUser = Parse.User.current();
     if (currentUser) {
@@ -15,9 +17,10 @@ var Router = Backbone.Router.extend({
     	App.myRouter.navigate("login/", {trigger: true});
     }
 
-	}
+	},
 
 	logInScreen: function(){
+		var currentUser = Parse.User.current();
 		if (currentUser) {
 			App.myRouter.navigate("", {trigger:true});
 		} else {
