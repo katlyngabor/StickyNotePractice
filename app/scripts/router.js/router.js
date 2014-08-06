@@ -12,7 +12,7 @@ var Router = Backbone.Router.extend({
 	home: function(){
 		var currentUser = Parse.User.current();
     if (currentUser) {
-    	var myView = new MainView({ collection: myCollection});
+    	var newView = new StickyView({ collection: myCollection});
     } else {
     	App.myRouter.navigate("login/", {trigger: true});
     }

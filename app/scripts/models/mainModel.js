@@ -1,4 +1,4 @@
-var mainModel = Parse.Object.extend({
+var StickyModel = Parse.Object.extend({
 
 	className:'mainStickies',
 
@@ -16,8 +16,8 @@ var mainModel = Parse.Object.extend({
 
 });
 
-var MainCollection = Parse.Collection.extend({
+var StickyCollection = Parse.Collection.extend({
 
-	model: mainModel
+	model: StickyModel
 
 });
