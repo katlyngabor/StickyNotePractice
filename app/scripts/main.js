@@ -13,12 +13,13 @@ newStickyCollection.fetch().done(function (){
 
 var mediaQuery = window.matchMedia('@media all and (max-width: 450px)');
 if(mediaQuery.matches) {
-    // the width of browser is more then 700px
+    // the width of browser is more then 450px
+    
+
 } else {
-    // the width of browser is less then 700px
+   $('.column').draggable();
 }
 
-$('.column').draggable();
 // $('.column').on('click', function(){
 
 //     $('#stickies').css('z-index','1');
