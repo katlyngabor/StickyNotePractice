@@ -6,11 +6,7 @@ var StickyModel = Parse.Object.extend({
 
 
 	initialize: function(){
-
-		var stickyId = this.get('id');
-		// console.log(stickyId " has been added to your mainModel.");
-	
-		console.log(stickyId);
+		console.log('added');
 	}
 
 

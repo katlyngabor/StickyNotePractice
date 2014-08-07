@@ -29,29 +29,34 @@
   </head>
   <body>
 
-    <div id="stickies">
-        <div class="column">
-            <textarea class="stickyText" placeholder="Your brilliant words here"></textarea>
-            <div class="stickyButtons">
-                <button class="saveSticky">add</button>
-                <button class="deleteSticky">X</button>
-            </div>
-        </div>  
-    </div>
-
-
-
-
+  <div class="trial"></div>
 
     <script type="text/x-handlebars-template" id="allStickies-template">
-      {{#each stickies}}
-        <div class="sticky-content">{{content}}
-        </div>
-          {{#if tags}}
-            <p class="tags">Tags:{{tags}}</p>
-          {{/if}}
-      {{/each}}
+        {{#each stickies}}
+            <div class="column">
+                <button class="saveStickyBtn">add</button>
+                <button class="deleteStickyBtn">X</button>
+                <div class="sticky-content" contenteditable="true">{{content}}</div>
+             {{#if tags}}
+                    <p class="tags">Tags:{{tags}}</p>
+             {{/if}}
+            </div>
+        {{/each}}  
     </script>
+
+
+<!--  // <textarea class="stickyText" placeholder="Your brilliant words here"></textarea>
+            // <div class="stickyButtons">
+
+      // {{#each stickies}}
+      //   <div class="sticky-content">{{content}}
+      //   </div>
+      //     {{#if tags}}
+      //       <p class="tags">Tags:{{tags}}</p>
+      //     {{/if}}
+      // {{/each}} -->
+
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>

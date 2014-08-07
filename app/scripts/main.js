@@ -11,37 +11,12 @@ newStickyCollection.fetch().done(function (){
 
 });
 
-var mediaQuery = window.matchMedia('@media all and (max-width: 450px)');
-if(mediaQuery.matches) {
-    // the width of browser is more then 450px
-    
-
-} else {
-   $('.column').draggable();
-}
-
-// $('.column').on('click', function(){
-
-//     $('#stickies').css('z-index','1');
-//     $( this ).css('z-index','1000');
-
-// });
-
-$('.column').click(function() {
-
-    // find the z-index of the top-most item
-    var setZindex = 0;
-    $('.column').each(function() {
-        var z = parseInt($(this).css('z-index'));
-        if(isNaN(z)) z = 0;
-        if(z > setZindex) setZindex = z;
-    });
-
-    // assign a z-index greater than the current max to the clicked item
-    $(this).css('z-index', setZindex+1);
 
 
-}); 
+
+
+
+
    
 // var dragSrcEl = null;
 
