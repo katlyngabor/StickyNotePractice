@@ -7,6 +7,7 @@ $buttonLinkColor:#c47499;
 $stickyNoteColor:#fafaa7;
 @mixin stickyButtonStyles{
   padding:2px;
+  padding-left:150pxpx;
   font-size:10px; 
   background-color:$stickyNoteColor;
   color:black;
