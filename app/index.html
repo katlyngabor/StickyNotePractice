@@ -30,10 +30,17 @@
   <body>
 
     <div id="stickies">
-        <div class="column"><textarea class="stickyText" placeholder="Your brilliant words here"></textarea></div>
-        <div class="column"></div>
-        <div class="column"></div>
+        <div class="column">
+            <textarea class="stickyText" placeholder="Your brilliant words here"></textarea>
+            <div class="stickyButtons">
+                <button class="saveSticky">add</button>
+                <button class="deleteSticky">X</button>
+            </div>
+        </div>  
     </div>
+
+
+
 
 
     <script type="text/x-handlebars-template" id="allStickies-template">

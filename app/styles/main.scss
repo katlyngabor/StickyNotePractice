@@ -2,23 +2,23 @@
 // @import '../../bower_components/bourbon/dist/bourbon';
 // @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
-// Custom Styles
-
-[draggable] {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  /* Required to make elements draggable in old WebKit */
-  -khtml-user-drag: element;
-  -webkit-user-drag: element;
+// Custom Styless
+$buttonLinkColor:#c47499;
+@mixin stickyButtonStyles{
+  padding:5px;
+  font-size:10px;
+  background-color:pink;
 }
+
+
+@media screen and (max-width: 450px){
 
 .sticky_container{
   height:200px;
   width:200px;
   float:left;
 }
+
 
 .column{
   height: 220px;
@@ -31,16 +31,46 @@
   -ms-box-shadow: inset 0 0 3px #000;
   box-shadow: inset 0 0 3px #000;
   text-align: center;
+
+    .saveSticky{
+     @include stickyButtonStyles;
+    }
+
+    .saveSticky:focus{
+      outline:0;
+    }
+
+    .saveSticky:hover{
+      color:$buttonLinkColor;
+    }
+
+    .deleteSticky{
+      @include stickyButtonStyles;
+    }
+
+    .deleteSticky:focus{
+      outline:0;
+    }
+
+    .deleteSticky:hover{
+      color:$buttonLinkColor;
+    }
   // cursor: move;
 }
 
 .stickyText{
-  height: 190px;
-  width: 210px;
+  height: 150px;
+  width: 200px;
   background-color: pink;
-  margin: 0 auto;
+  float:left;
   margin-top:12px;
+  margin-left:0;
+  resize:none;
 }
+
+
+}
+
 // .column header {
 //   color: #fff;
 //   text-shadow: #000 0 1px;
