@@ -11,12 +11,15 @@ newStickyCollection.fetch().done(function (){
 
 });
 
+ $(function() {
+    $( "#tabs" ).tabs();
+  });
 
 
 
 
 
-
+     
    
 // var dragSrcEl = null;
 
