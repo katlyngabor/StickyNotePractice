@@ -11,11 +11,22 @@ newStickyCollection.fetch().done(function (){
 
 });
 
- $(function() {
-    $( "#tabs" ).tabs();
-  });
+var newJournalCollection = new JournalCollection();
+
+newJournalCollection.fetch().done(function(){
+
+});
 
 
+$(function() {
+   $( "#tabs" ).tabs();
+});
+
+
+$('#tabs-2').on('click', function(){
+	App.router.navigate("journals", { trigger: true });
+	console.log('sup');
+});
 
 
 

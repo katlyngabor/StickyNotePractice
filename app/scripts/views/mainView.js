@@ -9,7 +9,7 @@
 				'click .sticky-content' : 'editSticky'
 		},
 
-		initialize: function(attributes){	
+		initialize: function(){	
 			this.render();
 			this.collection.on('change', this.render, this);
 			this.collection.on('destroy',this.render, this);
@@ -62,13 +62,7 @@
 	   			console.log(setZindex);
 
 	    });
-	  //   var stickyid = $(event.target).attr('id');
-			// var singleSticky = collectionVariable.get(stickyid);
-			// console.log(stickyid);
-	  //   singleSticky.save({
-	  //   		zIndex: setZindex
-	  //   	})
-
+	    
 			}, 
 
 		addSticky : function(e){

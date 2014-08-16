@@ -2,20 +2,27 @@ var Router = Backbone.Router.extend({
 
 	routes:{
 
-		"" : "home"	
+		"" : "home",	
+
+		"journals" : 'journals'
 		// "login/" : "logInScreen"
 
 	},
 
 
-
 	home: function(){
 		// var currentUser = Parse.User.current();
   //   if (currentUser) {
-			var newView = new StickyView({collection: newStickyCollection});
+			var newView = new StickyView( {collection: newStickyCollection} );
   //   } else {
     	// App.myRouter.navigate("login/", {trigger: true});
-    }
+  },
+
+  journals: function(){
+ 
+  		var newJournalView = new JournalView ( {collection: newJournalCollection} );	
+
+  }  
 
 
 

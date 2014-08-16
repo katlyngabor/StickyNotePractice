@@ -2,15 +2,10 @@ var StickyModel = Parse.Object.extend({
 
 	className:'mainStickies',
 
-	idAttribute: 'objectId',
-
-
-	initialize: function(){
-		console.log('added');
-	}
-
+	idAttribute: 'objectId'
 
 });
+
 
 var StickyCollection = Parse.Collection.extend({
 
