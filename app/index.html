@@ -37,43 +37,31 @@
   <body>
 
   <div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Idea Board</a></li>
-    <li><a href="#tabs-2">Journal</a></li>
-    <li><a href="#tabs-3">Projects</a></li>
-  </ul>
-  <div id="tabs-1">
-      <div class="sticky-container">
-        <div class="renderedStickies"></div>
-      </div>
-  </div>
-  <div id="tabs-2">
-    <p>Morbi tincidunt, dui sit amet faci</p>
-  </div>
-  <div id="tabs-3">
-    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede </p>
-  </div>
-</div>
-
- 
-    <!--   <div class="sticky-container">
-        <div class="renderedStickies"></div>
-      </div>
- -->
-
-    <script type="text/x-handlebars-template" id="allStickies-template">
+    <ul>
+      <li><a class= "IdeaBoardBtn" href="#IdeaBoard">Idea Board</a></li>
+      <li><a class="JournalsBtn" href="#Journal">Journal</a></li>
+      <li><a class= "ProjectsBtn" href="#Project">Projects</a></li>
+    </ul>
+    <div id="container">
+        <div class="sticky-container">
+          <div class="renderedStickies"></div>
+        </div>
+    </div>
+    
+    
+  <script type="text/x-handlebars-template" id="allStickies-template">
      
-       <button class="addNewStickyBtn">Add</button>
-        {{#each stickies}}
-            <div class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
-                <button class="deleteStickyBtn" id="{{objectId}}">X</button>
-                <button class="saveStickyBtn" id="{{objectId}}">update</button>
-                <textarea class="sticky-content" contenteditable="true">{{content}}</textarea>
-             {{#if tags}}
-                  <p class="tags">Tags:{{tags}}</p>
-             {{/if}}
-            </div>
-        {{/each}}  
+      <button class="addNewStickyBtn">Add</button>
+      {{#each stickies}}
+        <div class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
+          <button class="deleteStickyBtn" id="{{objectId}}">X</button>
+          <button class="saveStickyBtn" id="{{objectId}}">update</button>
+          <textarea class="sticky-content" contenteditable="true">{{content}}</textarea>
+            {{#if tags}}
+              <p class="tags">Tags:{{tags}}</p>
+            {{/if}}
+        </div>
+      {{/each}}  
      
     </script>
 
@@ -81,10 +69,12 @@
 
     <script type="text/x-handlebars-template" id="journals-template">
 
+    <button class="addJournalBtn" >Add Journal</button>
     {{#each journals}}
-        <div class="journalTitle"><{{journalTitle}}</div>
+        <div class="journalTitle" id='{{objectId}}'><{{journalTitle}}</div>
         <div class="journalDate"><{{journalDate}}</div>
         <div class="journalContent">{{journalContent}}</div>
+        <button class="deleteJournalBtn" id='{{objectId}}'>X</button>
         {{#if tags}}
            <p class="tags">Tags:{{tags}}</p>
         {{/if}}

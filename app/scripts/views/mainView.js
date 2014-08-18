@@ -68,8 +68,6 @@
 		addSticky : function(e){
 			e.preventDefault();
 			e.stopPropagation();
-			console.log('in add sticky function');
-			
 			var new_sticky = new StickyModel({
   			content: $('.stickyText').val()
 

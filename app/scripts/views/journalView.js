@@ -29,14 +29,24 @@ var JournalView = Backbone.View.extend({
 	addJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
-		var journalid = $(event.target).attr('id');
-		var singleJournal = this.collection.get(journalid);
+		var new_journal = new JournalModel({
+			content: $('.JournalText').val()
+		})
 
+		new_journal.save(null,{
+	    success:function(new_journal) {
+	     	newJournalCollection.add(new_journal);
+	      console.log('saved Journal');
+	    }	
+	  });
+		
 	},
 
 	saveJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
+		var journalid = $(event.target).attr('id');
+		var singleJournal = this.collection.get(journalid);
 
 	},
 
@@ -44,6 +54,16 @@ var JournalView = Backbone.View.extend({
 		e.preventDefault();
 		e.stopPropagation();
 
+	},
+
+	deleteJournal: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var journalid = $(event.target).attr('id');
+		var singleJournal = this.collection.get(journalid);
+		if (window.confirm("Are you sure you want to delete this post?")) {
+      singleJournal.destroy();
+		}
 	}
 
 

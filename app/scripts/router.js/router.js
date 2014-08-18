@@ -2,9 +2,9 @@ var Router = Backbone.Router.extend({
 
 	routes:{
 
-		"" : "home",	
+		"IdeaBoard" : "home",	
 
-		"journals" : 'journals'
+		"Journal" : 'journals'
 		// "login/" : "logInScreen"
 
 	},
@@ -19,10 +19,8 @@ var Router = Backbone.Router.extend({
   },
 
   journals: function(){
- 
-  		var newJournalView = new JournalView ( {collection: newJournalCollection} );	
-
-  }  
+ 		var newJournalView = new JournalView ( {collection: newJournalCollection} );	
+	}  
 
 
 
