@@ -70,10 +70,18 @@
     <script type="text/x-handlebars-template" id="journals-template">
 
     <button class="addJournalBtn" >Add Journal</button>
+    <div class="overlay">
+      <div class="journaling">Journaling</div>
+      <input class="journalTitleInput" placeholder="What's in a name?"></>
+      <textarea class="journalInput" placeholder="Words, words, words..."></textarea>
+      <button class="submitJournalBtn">Publish</button>
+      <button class="cancelJournalBtn">Nevermind</button>
+    </div>
+
     {{#each journals}}
-        <div class="journalTitle" id='{{objectId}}'><{{journalTitle}}</div>
-        <div class="journalDate"><{{journalDate}}</div>
-        <div class="journalContent">{{journalContent}}</div>
+        <div class="journalTitle" id='{{objectId}}'>{{title}}</div>
+        <div class="journalDate">{{journalDate}}</div>
+        <div class="journalContent">{{content}}</div>
         <button class="deleteJournalBtn" id='{{objectId}}'>X</button>
         {{#if tags}}
            <p class="tags">Tags:{{tags}}</p>

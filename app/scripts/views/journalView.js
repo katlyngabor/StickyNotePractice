@@ -5,6 +5,7 @@ var JournalView = Backbone.View.extend({
 	events:{
 
 		'click .addJournalBtn' : 'addJournal',
+		'click .submitJournalBtn' : 'submitJournal',
 		'click .saveJournalBtn' : 'saveJournal',
 		'click .deleteJournalBtn' : 'deleteJournal',
 		'click .editJournalBtn' : 'editJournal'
@@ -29,11 +30,22 @@ var JournalView = Backbone.View.extend({
 	addJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
-		var new_journal = new JournalModel({
-			content: $('.JournalText').val()
-		})
+		$('.overlay').toggleClass('shown');
 
-		new_journal.save(null,{
+		
+	},
+
+	submitJournal: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$('.overlay').toggleClass('shown');
+
+		var new_journal = new JournalModel({
+			title: $('.journalTitleInput').val(),
+  		content: $('.journalInput').val()
+  	});
+
+			new_journal.save(null,{
 	    success:function(new_journal) {
 	     	newJournalCollection.add(new_journal);
 	      console.log('saved Journal');
