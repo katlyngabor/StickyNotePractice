@@ -3,7 +3,6 @@ var sideBarProjectsView = Backbone.View.extend({
 	className: 'allSidebarProjects',
 
 	events:{
-		'click .addNewProjectBtn' : 'addNewProject',
 		'drop .column' : 'moveSticky',
 		'drop .journalContainer' : 'moveJournal',
 		'drag .column' : 'removeSticky',

@@ -5,7 +5,8 @@ var ProjectView = Backbone.View.extend({
 	events:{
 
 		'click .deleteProjectBtn' : 'deleteProject',
-		'click .singleViewBtn' : 'singleView'
+		'click .singleViewBtn' : 'singleView',
+		'click .addNewProjectBtn' : 'addNewProject'
 	},
 
 	initialize: function(){
@@ -23,7 +24,25 @@ var ProjectView = Backbone.View.extend({
 		var renderingElement = this.$el.html(rendered);
 		$('.renderedStickies').html(renderingElement);
 		this.delegateEvents();
+	},
+
+	addNewProject: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var new_project = new ProjectModel({
+			journals:[],
+			stickies:[]
+
+  	});
+
+			new_project.save(null,{
+	    success:function(new_project) {
+	     	newProjectCollection.add(new_project);
+	    }	
+	  });
+
 	}
+
 
 
 });

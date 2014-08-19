@@ -113,11 +113,16 @@
 
     <script type="text/x-handlebars-template" id="projects-template">
 
-      <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
-      <div class="projectPage">
-        <div class="projectStickies">{{content}}</div>
-        <div class="projectJournals">{{journal-content}}</div>
-      </div>
+      <button class="addNewProjectBtn" id="{{objectId}}">New Project</button>
+      {{#each projects}}
+        <div class="projectContainer">
+          <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
+          <div class="projectPage">
+            <div class="projectStickies">{{content}}</div>
+            <div class="projectJournals">{{journal-content}}</div>
+          </div>
+        </div>
+      {{/each}}
 
      </script>
 

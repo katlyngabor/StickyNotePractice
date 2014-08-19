@@ -76,7 +76,6 @@
   			new_sticky.save(null,{
 	    		success:function(new_sticky) {
 	      		newStickyCollection.add(new_sticky);
-	      		console.log('saved');
 	    		}	
 	  		});
 		},
