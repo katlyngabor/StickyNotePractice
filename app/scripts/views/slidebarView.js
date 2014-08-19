@@ -14,8 +14,6 @@ var sideBarProjectsView = Backbone.View.extend({
 		this.collection.on('change', this.render, this);
 		this.collection.on('destroy', this.render, this);
 		this.collection.on('add', this.render, this);
-		console.log('hi');
-
 	},
 
 	render: function(){
@@ -24,23 +22,40 @@ var sideBarProjectsView = Backbone.View.extend({
 		var renderingElement = this.$el.html(rendered);
 		$('#projectsSlide').html(renderingElement);
 		this.delegateEvents();
-	},	
+		var myCollection = this.collection;
 
-	addNewProject: function(e){
-		e.preventDefault();
-		e.stopPropagation();
-		var new_project = new ProjectModel({
-			stickies:[],
-			journals:[]
-  	});
 
-			new_project.save(null,{
-	    success:function(new_project) {
-	     	newProjectCollection.add(new_project);
-	    }	
-	  });
+		$('.projectContainer').droppable({
+	    accept: '.column',
+	    drop: function( event, ui) {
+	    	var projectid = $(event.target).attr('id');
+	    	var stickyid = $(ui.draggable[0]).attr('id');
+	    	// console.log(self);
+	    	var singleProject = myCollection.get(projectid);
+	    	singleProject.save({
+	    		stickies:[stickyid]
+	    	})
+	    }
 
-	}
+	   });
+
+	},
+
+		addNewProject: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			var new_project = new ProjectModel({
+				stickies:[],
+				journals:[]
+	  	});
+
+				new_project.save(null,{
+		    success:function(new_project) {
+		     	newProjectCollection.add(new_project);
+		    }	
+		  });
+
+		}
 
 
 
@@ -62,14 +77,14 @@ var sideBarProjectsView = Backbone.View.extend({
 
 
 
-$('#projectsSlide').droppable({ tolerance: "fit" });
+// $('#projectsSlide').droppable({ tolerance: "fit" });
 
-$('#projectsSlide').droppable({ accept: '.column'});
+// $('#projectsSlide').droppable({ accept: '.column'});
 
-// var accept = $('#projectsSlide').droppable( "option", "accept" );
+// // var accept = $('#projectsSlide').droppable( "option", "accept" );
  
-$('#projectsSlide').droppable( "option", "accept", ".column" );
+// $('#projectsSlide').droppable( "option", "accept", ".column" );
 
-$('#projectsSlide').on( "drop", function( event, ui ) {
-	alert('dropped');
-});
+// $('#projectsSlide').on( "drop", function( event, ui ) {
+// 	alert('dropped');
+// });

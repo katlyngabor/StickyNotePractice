@@ -137,6 +137,10 @@ $stickyNoteColor:#E9EBFF;
 
 //Project styles
 
+.addNewProjectBtn{
+  display:block;
+}
+
 .projectContainer{
   width: 150px;
   height: 210px;
@@ -145,9 +149,68 @@ $stickyNoteColor:#E9EBFF;
   float:left;
 }
 
+.deleteProjectBtn{
+  padding-left:3px;
+  font-size:.7em;
+  text-decoration:none;
+}
 
+.projectModal{
+  @include span-columns(5);
+  text-align: center;
+  position: absolute;
+  z-index:1000;
+  margin: 0 auto;
+  background-color:grey;
+  margin-left:298px;
+  margin-top:25px;
+  display:none;
 
+  &.showModal{
+    display:block;
+  }
+}
 
+.projectTitleInput{
+  display:block;
+  margin:0 auto;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.projectDescription{
+  display:block;
+  margin:0 auto;
+  margin-top:10px;
+  margin-bottom:30px;
+  width:400px;
+  height:100px;
+}
+
+.submitProjectInfo{
+  margin:0 auto;
+  margin-bottom:30px;
+  margin-right:10px;
+}
+
+.cancelProjectInfo{
+  margin:0 auto;
+  margin-bottom:30px;
+}
+
+.hoverContainer{
+  width:100px;
+  height:100px;
+  position:absolute;
+  z-index:1000;
+  display:none;
+  background-color:grey;
+  margin-left:10px;
+
+  &.showHover{
+    display:inline;
+  }
+}
 
 
 

@@ -2,11 +2,11 @@ var ProjectView = Backbone.View.extend({
 
 	className : 'allProjects',
 
-	events:{
-
+	events:{		
+		'click .addNewProjectBtn' : 'addNewProject',
+		'click .submitProjectInfo' : 'submitProject',
 		'click .deleteProjectBtn' : 'deleteProject',
-		'click .singleViewBtn' : 'singleView',
-		'click .addNewProjectBtn' : 'addNewProject'
+		'click .singleViewBtn' : 'singleView'
 	},
 
 	initialize: function(){
@@ -24,15 +24,26 @@ var ProjectView = Backbone.View.extend({
 		var renderingElement = this.$el.html(rendered);
 		$('.renderedStickies').html(renderingElement);
 		this.delegateEvents();
+		$('.projectTitle').on('click', function(){
+			$('.hoverContainer').addClass('showHover');
+		})
 	},
 
 	addNewProject: function(e){
 		e.preventDefault();
 		e.stopPropagation();
+		$('.projectModal').addClass('showModal');
+	},
+
+	submitProject: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$('.projectModal').removeClass('showModal');
 		var new_project = new ProjectModel({
+			projectTitle:$('.projectTitleInput').val(),
+			projectDescription:$('.projectDescription').val(),
 			journals:[],
 			stickies:[]
-
   	});
 
 			new_project.save(null,{
@@ -40,6 +51,17 @@ var ProjectView = Backbone.View.extend({
 	     	newProjectCollection.add(new_project);
 	    }	
 	  });
+
+	},
+
+	deleteProject: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var projectid = $(event.target).attr('id');
+		var singleProject = this.collection.get(projectid);
+		if (window.confirm("Are you sure you want to delete this post?")) {
+      singleProject.destroy();
+		}
 
 	}
 

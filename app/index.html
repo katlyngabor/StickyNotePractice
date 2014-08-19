@@ -65,8 +65,7 @@
       <button class="returningUser ">Returning User?</button>
       
     </script>
-
-      
+     
     <script type="text/x-handlebars-template" id="allStickies-template">
        
         <button class="addNewStickyBtn">Add</button>
@@ -83,17 +82,16 @@
        
     </script>
 
-
     <script type="text/x-handlebars-template" id="journals-template">
 
-    <button class="addJournalBtn" >Add Journal</button>
-    <div class="overlay">
-      <div class="journaling">Journaling</div>
-      <input class="journalTitleInput" placeholder="What's in a name?"></>
-      <textarea class="journalInput" placeholder="Words, words, words..."></textarea>
-      <button class="submitJournalBtn">Publish</button>
-      <button class="cancelJournalBtn">Nevermind</button>
-    </div>
+      <button class="addJournalBtn" >Add Journal</button>
+      <div class="overlay">
+        <div class="journaling">Journaling</div>
+        <input class="journalTitleInput" placeholder="What's in a name?"></>
+        <textarea class="journalInput" placeholder="Words, words, words..."></textarea>
+        <button class="submitJournalBtn">Publish</button>
+        <button class="cancelJournalBtn">Nevermind</button>
+      </div>
 
     {{#each journals}}
       <div class="journalContainer" id='{{objectId}}'>
@@ -106,21 +104,29 @@
         {{/if}}
       </div>
     {{/each}}
-
-           
+     
     </script>
-
 
     <script type="text/x-handlebars-template" id="projects-template">
 
+      <div class="projectModal">
+        <input class="projectTitleInput" placeholder="Project Title"></input>
+        <textarea class="projectDescription" placeholder="Description"></textarea>
+        <button class="submitProjectInfo">Add</button>
+        <button class="cancelProjectInfo">Nevermind</button>
+      </div>
+
       <button class="addNewProjectBtn" id="{{objectId}}">New Project</button>
       {{#each projects}}
-        <div class="projectContainer">
+        <div class="projectContainer" id="{{objectId}}">
+          <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
           <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
-          <div class="projectPage">
-            <div class="projectStickies">{{content}}</div>
-            <div class="projectJournals">{{journal-content}}</div>
-          </div>
+          <div class="projectStickies">{{stickies}}</div>
+          <div class="projectJournals">{{journals}}</div>
+        </div>
+        <div class='hoverContainer'>
+          <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
+          <div class="projectDescription">{{projectDescription}}</div>
         </div>
       {{/each}}
 
