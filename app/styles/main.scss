@@ -110,6 +110,29 @@ $stickyNoteColor:#E9EBFF;
   margin-bottom:35px;
 }
 
+//Projects Slide styles
+
+.viewProjectsSlideBtn{
+  float:right;
+}
+
+#projectsSlide{
+  width:260px;
+  height:1000px;
+  background-color: white;
+  border:15px solid blue;
+  margin-top:50px;
+  left: 1600px;
+  position:absolute;
+  @include transition-property(left);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease);
+  // z-index:1000;
+
+  &.show {
+    left: 1000px;
+  }
+}
 
 
 

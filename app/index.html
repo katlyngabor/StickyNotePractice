@@ -26,45 +26,62 @@
   <!--   <input type="file" name="uploadField" /> -->
 
   </head>
- <!--  <div class="row">
-  <div class="small-2 columns">2 columns</div>
-  <div class="small-10 columns">10 columns</div>
-</div>
-<div class="row">
-  <div class="small-3 columns">3 columns</div>
-  <div class="small-9 columns">9 columns</div>
-</div> -->
+
   <body>
 
-  <div id="tabs">
-    <ul>
-      <li><a class= "IdeaBoardBtn" href="#IdeaBoard">Idea Board</a></li>
-      <li><a class="JournalsBtn" href="#Journal">Journal</a></li>
-      <li><a class= "ProjectsBtn" href="#Project">Projects</a></li>
-    </ul>
-    <div id="container">
-        <div class="sticky-container">
-          <div class="renderedStickies"></div>
-        </div>
-    </div>
-    
-    
-  <script type="text/x-handlebars-template" id="allStickies-template">
-     
-      <button class="addNewStickyBtn">Add</button>
-      {{#each stickies}}
-        <div class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
-          <button class="deleteStickyBtn" id="{{objectId}}">X</button>
-          <button class="saveStickyBtn" id="{{objectId}}">update</button>
-          <textarea class="sticky-content" contenteditable="true">{{content}}</textarea>
-            {{#if tags}}
-              <p class="tags">Tags:{{tags}}</p>
-            {{/if}}
-        </div>
-      {{/each}}  
-     
+    <button class="logOutBtn">Logout</button>
+    <button class="viewProjectsSlideBtn">View Projects</button>
+    <div id="projectsSlide">
+       <button class="addNewProjectBtn" id="{{objectId}}">Create Project</button>
+    </div> 
+
+    <div id="tabs">
+      <ul>
+        <li><a class= "IdeaBoardBtn" href="#">Idea Board</a></li>
+        <li><a class="JournalsBtn" href="#Journal">Journal</a></li>
+        <li><a class= "ProjectsBtn" href="#Project">Projects</a></li>
+      </ul>
+      <div id="container">
+          <div class="sticky-container">
+            <div class="renderedStickies"></div>
+          </div>
+      </div>
+
+
+    <script type="text/x-handlebars-template" id="login-template">
+
+      <input type="text" id="loginInput" placeholder="Who are you?"></>
+      <input type="password" id="passwordInput" placeholder="What's your password?"></>
+      <button class="loginBtn">Sign In</button>
+      <button class="newUserBtn">New User?</button>
+
     </script>
 
+    <script type="text/x-handlebars-template" id="signUp-template">
+
+      <input type="text" id="signUpInput" placeholder="Who are you?"></>
+      <input type="password" id="newPasswordInput" placeholder="What's your password?"></>
+      <button class="signUpBtn">Sign Up</button>
+      <button class="returningUser ">Returning User?</button>
+      
+    </script>
+
+      
+    <script type="text/x-handlebars-template" id="allStickies-template">
+       
+        <button class="addNewStickyBtn">Add</button>
+        {{#each stickies}}
+          <div class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
+            <button class="deleteStickyBtn" id="{{objectId}}">X</button>
+            <button class="saveStickyBtn" id="{{objectId}}">update</button>
+            <textarea class="sticky-content" contenteditable="true">{{content}}</textarea>
+              {{#if tags}}
+                <p class="tags">Tags:{{tags}}</p>
+              {{/if}}
+          </div>
+        {{/each}}  
+       
+    </script>
 
 
     <script type="text/x-handlebars-template" id="journals-template">
@@ -79,22 +96,24 @@
     </div>
 
     {{#each journals}}
-        <div class="journalTitle" id='{{objectId}}'>{{title}}</div>
+      <div class="journalContainer" id='{{objectId}}'>
+        <div class="journalTitle">{{title}}</div>
         <div class="journalDate">{{journalDate}}</div>
         <div class="journalContent">{{content}}</div>
         <button class="deleteJournalBtn" id='{{objectId}}'>X</button>
         {{#if tags}}
            <p class="tags">Tags:{{tags}}</p>
         {{/if}}
+      </div>
     {{/each}}
+
            
     </script>
 
 
-
     <script type="text/x-handlebars-template" id="projects-template">
 
-      <div class="projectTitle">{{projectTitle}} id="{{objectId}}"</div>
+      <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
       <div class="projectPage">
         <div class="projectStickies">{{content}}</div>
         <div class="projectJournals">{{journal-content}}</div>
@@ -127,11 +146,14 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/models/projectModel.js"></script>
         <script src="scripts/models/mainModel.js"></script>
         <script src="scripts/models/journalModel.js"></script>
         <script src="scripts/views/mainView.js"></script>
         <script src="scripts/views/loginView.js"></script>
         <script src="scripts/views/journalView.js"></script>
+        <script src="scripts/views/projectsView.js"></script>
+        <script src="scripts/views/slidebarView.js"></script>
         <script src="scripts/router.js/router.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

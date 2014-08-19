@@ -14,6 +14,8 @@
 			this.collection.on('change', this.render, this);
 			this.collection.on('destroy',this.render, this);
 			this.collection.on('add', this.render, this);
+			$('.viewProjectsSlideBtn').show();
+			$('#projectsSlide').show();
 		},
 
 		render: function(){
@@ -58,8 +60,6 @@
 	        if(z > setZindex) setZindex = z;
 	   		 });
 	    	$(this).css('z-index', setZindex+1);
-	    	
-	   			console.log(setZindex);
 
 	    });
 	    

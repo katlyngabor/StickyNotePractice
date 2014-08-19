@@ -7,6 +7,7 @@ var JournalView = Backbone.View.extend({
 		'click .addJournalBtn' : 'addJournal',
 		'click .submitJournalBtn' : 'submitJournal',
 		'click .saveJournalBtn' : 'saveJournal',
+		'click .cancelJournalBtn' : 'cancelJournal',
 		'click .deleteJournalBtn' : 'deleteJournal',
 		'click .editJournalBtn' : 'editJournal'
 
@@ -17,6 +18,8 @@ var JournalView = Backbone.View.extend({
 		this.collection.on('change', this.render, this);
 		this.collection.on('destroy', this.render, this);
 		this.collection.on('add', this.render, this);
+		$('.viewProjectsSlideBtn').show();
+		$('#projectsSlide').show();
 	},
 
 	render: function(){
@@ -31,8 +34,6 @@ var JournalView = Backbone.View.extend({
 		e.preventDefault();
 		e.stopPropagation();
 		$('.overlay').toggleClass('shown');
-
-		
 	},
 
 	submitJournal: function(e){
@@ -48,18 +49,15 @@ var JournalView = Backbone.View.extend({
 			new_journal.save(null,{
 	    success:function(new_journal) {
 	     	newJournalCollection.add(new_journal);
-	      console.log('saved Journal');
 	    }	
 	  });
 		
 	},
 
-	saveJournal: function(e){
+	cancelJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
-		var journalid = $(event.target).attr('id');
-		var singleJournal = this.collection.get(journalid);
-
+		$('.overlay').toggleClass('shown');
 	},
 
 	editJournal: function(){
