@@ -35,18 +35,19 @@
        <button class="addNewProjectBtn" id="{{objectId}}">Create Project</button>
     </div> 
 
-    <div id="tabs">
-      <ul>
-        <li><a class= "IdeaBoardBtn" href="#">Idea Board</a></li>
-        <li><a class="JournalsBtn" href="#Journal">Journal</a></li>
-        <li><a class= "ProjectsBtn" href="#Project">Projects</a></li>
-      </ul>
-      <div id="container">
-          <div class="sticky-container">
-            <div class="renderedStickies"></div>
-          </div>
+    <div id="menu">
+        <a class= "IdeaBoardBtn" href="#">Idea Board</a>
+        <a class="JournalsBtn" href="#Journal">Journal</a>
+        <a class= "ProjectsBtn" href="#Project">Projects</a>
+    </div>
+    <div id="container">
+      <div class="sticky-container">
+        <div class="renderedStickies"></div>
       </div>
+    </div>
 
+
+<!-- Login Template -->
 
     <script type="text/x-handlebars-template" id="login-template">
 
@@ -57,6 +58,8 @@
 
     </script>
 
+<!-- SignUp Template -->
+
     <script type="text/x-handlebars-template" id="signUp-template">
 
       <input type="text" id="signUpInput" placeholder="Who are you?"></>
@@ -65,15 +68,17 @@
       <button class="returningUser ">Returning User?</button>
       
     </script>
+
+<!-- Stickies Template -->
      
     <script type="text/x-handlebars-template" id="allStickies-template">
        
-        <button class="addNewStickyBtn">Add</button>
+        <button class="addNewStickyBtn">New Idea</button>
         {{#each stickies}}
           <div class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
-            <button class="deleteStickyBtn" id="{{objectId}}">X</button>
-            <button class="saveStickyBtn" id="{{objectId}}">update</button>
-            <textarea class="sticky-content" contenteditable="true">{{content}}</textarea>
+            <a class="deleteStickyBtn" href="deleteSticky" id="{{objectId}}">X</a>
+            <a class="saveStickyBtn" href="saveSticky" id="{{objectId}}">update</a>
+            <textarea class="sticky-content">{{content}}</textarea>
               {{#if tags}}
                 <p class="tags">Tags:{{tags}}</p>
               {{/if}}
@@ -82,9 +87,11 @@
        
     </script>
 
-    <script type="text/x-handlebars-template" id="journals-template">
+<!-- Journals Template -->
 
-      <button class="addJournalBtn" >Add Journal</button>
+    <script type="text/x-handlebars-template" id="journals-template">
+      
+      <button class="addJournalBtn">New Journal</button>
       <div class="overlay">
         <div class="journaling">Journaling</div>
         <input class="journalTitleInput" placeholder="What's in a name?"></>
@@ -95,17 +102,31 @@
 
     {{#each journals}}
       <div class="journalContainer" id='{{objectId}}'>
-        <div class="journalTitle">{{title}}</div>
+        <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>
+        <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
         <div class="journalDate">{{journalDate}}</div>
         <div class="journalContent">{{content}}</div>
-        <button class="deleteJournalBtn" id='{{objectId}}'>X</button>
         {{#if tags}}
            <p class="tags">Tags:{{tags}}</p>
         {{/if}}
       </div>
-    {{/each}}
-     
+    {{/each}} 
+
     </script>
+
+<!-- Single Journal Template -->
+
+    <script type="text/x-handlebars-template" id="singleJournalView-template">
+
+      <div class="singleJournalTitle">{{title}}</div>
+      <div class="singleJournalContent">{{content}}</div>
+      <button class="closeSingleJournalBtn">Close</div>
+      <button class="editSingleJournalBtn">Edit</div>
+
+    </script>
+  
+
+<!-- All Projects Template -->
 
     <script type="text/x-handlebars-template" id="projects-template">
 
@@ -120,10 +141,7 @@
       {{#each projects}}
         <div class="projectContainer" id="{{objectId}}">
           <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
-          <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
-          <div class="projectStickies">{{stickies}}</div>
-          <div class="projectJournals">{{journals}}</div>
-        </div>
+          <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>  </div>
         <div class='hoverContainer'>
           <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
           <div class="projectDescription">{{projectDescription}}</div>
@@ -132,6 +150,17 @@
 
      </script>
 
+<!-- Single Project Template -->
+
+    <script type="text/x-handlebars-template" id="singleViewProjects-template">
+       
+        <div class="singleProjectContainer" id="{{objectId}}">
+          <div class="projectTitle">{{projectTitle}}</div>
+          <div class="projectStickies">{{stickies}}</div>
+          <button class="closeSingleViewBtn">Close</button>
+        </div>
+
+    </script>
 
 
 <!--  // <textarea class="stickyText" placeholder="Your brilliant words here"></textarea>
@@ -165,6 +194,8 @@
         <script src="scripts/views/journalView.js"></script>
         <script src="scripts/views/projectsView.js"></script>
         <script src="scripts/views/slidebarView.js"></script>
+        <script src="scripts/views/singleJournalView.js"></script>
+        <script src="scripts/views/singleProjectView.js"></script>
         <script src="scripts/router.js/router.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

@@ -5,9 +5,10 @@ var Router = Backbone.Router.extend({
 		"login" : "login",
 		"" : "home",	
 		"Journal" : 'journals',
-		"Project" : 'projects'
+		"Project" : 'projects',
+    "project/:id" : 'singleProject',
+    "journal/:id" : 'singleJournal'
 	},
-
 
 	login: function(){
     var currentUser = Parse.User.current();
@@ -44,8 +45,25 @@ var Router = Backbone.Router.extend({
     } else {
     	App.myRouter.navigate("login", {trigger: true});
     }
-  }
+  }, 
 
+  singleProject: function(id){
+    var currentUser = Parse.User.current();
+    if (currentUser) {
+      var newSingleProjectView = new SingleProjectView( {projectid: id, collection: newProjectCollection} ); 
+    } else {
+      App.myRouter.navigate("login", {trigger: true});
+    }
+  },
+
+  singleJournal: function(id){
+   var currentUser = Parse.User.current();
+      if (currentUser) {
+        var newSingleJournalView = new SingleJournalView( {journalid: id, collection: newJournalCollection} ); 
+      } else {
+        App.myRouter.navigate("login", {trigger: true});
+      }
+    }
 
 
 	// logInScreen: function(){

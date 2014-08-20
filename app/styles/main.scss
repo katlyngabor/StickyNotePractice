@@ -4,13 +4,19 @@
 // Custom Styless
 $buttonLinkColor:#c47499;
 $stickyNoteColor:#E9EBFF;
-@mixin stickyButtonStyles{
-  padding:2px;
-  font-size:10px; 
-  background-color:$stickyNoteColor;
-  color:black;
-  // float:right;
-  margin-top:2px;
+
+@mixin editLinks{
+  padding-left:3px;
+  font-size:10px;
+  text-decoration:none;
+
+  &:link{
+    color:black;
+  }
+}
+
+#menu{
+  text-decoration:none;
 }
 
 .sticky-container{
@@ -37,7 +43,7 @@ $stickyNoteColor:#E9EBFF;
   // text-align: center;
 
     .saveStickyBtn{
-     @include stickyButtonStyles;
+     @include editLinks;
     }
 
     .saveStickyBtn:focus{
@@ -49,7 +55,7 @@ $stickyNoteColor:#E9EBFF;
     }
 
     .deleteStickyBtn{
-      @include stickyButtonStyles;
+      @include editLinks;
     }
 
     .deleteStickyBtn:focus{
@@ -66,15 +72,19 @@ $stickyNoteColor:#E9EBFF;
   }
 
  .sticky-content{
-      background-color:$stickyNoteColor;
-      overflow:scroll;
-      resize:none;
-      height:150px;
-      width:180px;
-      outline:none;
-    }
+  background-color:$stickyNoteColor;
+  overflow:scroll;
+  resize:none;
+  height:150px;
+  width:180px;
+  outline:none;
+  }
 
 //Journal Styling
+
+.addJournalBtn{
+  display:block;
+}
 
 .overlay{
   @include span-columns(8);
@@ -86,6 +96,7 @@ $stickyNoteColor:#E9EBFF;
 
 .shown{
   @include span-columns(8);
+  margin-left:160px;
   text-align: center;
   position: absolute;
   z-index:1000;
@@ -108,6 +119,18 @@ $stickyNoteColor:#E9EBFF;
   width: 600px;
   height:300px;
   margin-bottom:35px;
+}
+
+.journalContainer{
+  width: 150px;
+  height: 210px;
+  border:1px solid black;
+  float:left;
+  margin:30px;
+}
+
+.deleteJournalBtn{
+  @include editLinks;
 }
 
 //Projects Slide styles
@@ -139,6 +162,10 @@ $stickyNoteColor:#E9EBFF;
 
 .addNewProjectBtn{
   display:block;
+
+  &.hiddenBtn{
+    display:none;
+  }
 }
 
 .projectContainer{
@@ -150,9 +177,7 @@ $stickyNoteColor:#E9EBFF;
 }
 
 .deleteProjectBtn{
-  padding-left:3px;
-  font-size:.7em;
-  text-decoration:none;
+  @include editLinks;
 }
 
 .projectModal{

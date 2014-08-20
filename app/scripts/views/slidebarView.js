@@ -10,6 +10,7 @@ var sideBarProjectsView = Backbone.View.extend({
 	},
 
 	initialize: function(){
+		$('.addNewProjectBtn').addClass('hiddenBtn');//why isn't this working?
 		this.render();
 		this.collection.on('change', this.render, this);
 		this.collection.on('destroy', this.render, this);
@@ -22,7 +23,6 @@ var sideBarProjectsView = Backbone.View.extend({
 		var renderingElement = this.$el.html(rendered);
 		$('#projectsSlide').html(renderingElement);
 		this.delegateEvents();
-		var myCollection = this.collection;
 
 
 		$('.projectContainer').droppable({
@@ -30,11 +30,10 @@ var sideBarProjectsView = Backbone.View.extend({
 	    drop: function( event, ui) {
 	    	var projectid = $(event.target).attr('id');
 	    	var stickyid = $(ui.draggable[0]).attr('id');
-	    	// console.log(self);
-	    	var singleProject = myCollection.get(projectid);
-	    	singleProject.save({
-	    		stickies:[stickyid]
-	    	})
+				var singleSticky = newStickyCollection.get(stickyid);
+  			singleSticky.save({
+  				project: projectid
+  			});
 	    }
 
 	   });
