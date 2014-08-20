@@ -3,10 +3,6 @@ var sideBarProjectsView = Backbone.View.extend({
 	className: 'allSidebarProjects',
 
 	events:{
-		'drop .column' : 'moveSticky',
-		'drop .journalContainer' : 'moveJournal',
-		'drag .column' : 'removeSticky',
-		'drag .journalContainer' : 'removeJournal'
 	},
 
 	initialize: function(){

@@ -18,14 +18,17 @@ SingleProjectView = Backbone.View.extend({
 		query.equalTo("project", projectid);
 		query.find({	
 		  success: function(results) {
-		  	console.log(results);
-		var singleView_template = Handlebars.compile($('#singleViewProjects-template').html());
-		var rendered = singleView_template(self.singleProject.toJSON(),{stickies:results});
-		var renderingElement = self.$el.html(rendered);
-		$('.renderedStickies').html(renderingElement);
-		self.delegateEvents();
+		  	if (results.length > 0){
+		  		results.forEach(function(sticky){
+			  		var stickiesProject = sticky.get('content');
+			  		$('.renderedStickies').html(stickiesProject);
+		  		})
+		  	}
+		  	else {
+		  		$('.renderedStickies').html('Add some brilliance to this project :)')
+		  	}
 			}
-		});
+		})
 	},
 
 	closeSingleView: function(e){

@@ -25,7 +25,7 @@ var LoginView = Backbone.View.extend({
 
 	logIn: function(){
 
-			Parse.User.logIn($('#logInInput').val(), $('#passwordInput').val(), {
+			Parse.User.logIn($('#loginInput').val(), $('#passwordInput').val(), {
 			  success: function(user) {
 			 		App.myRouter.navigate('', { trigger: true });
 

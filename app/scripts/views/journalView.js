@@ -16,9 +16,9 @@ var JournalView = Backbone.View.extend({
 
 	initialize: function(){
 		this.render();
-		this.collection.on('change', this.render, this);
-		this.collection.on('destroy', this.render, this);
-		this.collection.on('add', this.render, this);
+		// this.collection.on('change', this.render, this);
+		// this.collection.on('destroy', this.render, this);
+		// this.collection.on('add', this.render, this);  
 		$('.viewProjectsSlideBtn').show();
 		$('#projectsSlide').show();
 	},
@@ -28,7 +28,45 @@ var JournalView = Backbone.View.extend({
 		var rendered = journal_template( {journals:this.collection.toJSON() })
 		var renderingElement = this.$el.html(rendered);
 		$('.renderedStickies').html(renderingElement);
-		this.delegateEvents();
+		var myCollection = this.collection;
+
+
+		var coordinates = function(element) {
+				element = $(event.target);
+				var top = element.position().top;
+				var left = element.position().left;
+				var journalid = element.attr('id');
+				var singleJournal = myCollection.get(journalid);
+				singleJournal.save({
+					topLocation: top,
+					leftLocation: left
+				})
+			}
+
+			$(".journalContainer").draggable({
+		    stop: function() {
+		        coordinates('.journalContainer');
+		    }
+			})
+	    .click(function(){
+	       if ( $(this).is('.ui-draggable-dragging') ) {
+	            return;
+	       }
+	       $(this).draggable( "option", "disabled", true );
+	       $(this).attr('contenteditable','true');
+	    })
+	    .blur(function(){
+	      $(this).draggable( 'option', 'disabled', false);
+	      $(this).attr('contenteditable','false');
+	      var setZindex = 0;
+	      $(this).each(function() {
+	        var z = parseInt($(this).css('z-index'));
+	        if(isNaN(z)) z = 0;
+	        if(z > setZindex) setZindex = z;
+	   		 });
+	    	$(this).css('z-index', setZindex+1);
+	    })
+
 	},
 
 	addJournal: function(e){

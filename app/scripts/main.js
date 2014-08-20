@@ -36,9 +36,9 @@ $('.viewProjectsSlideBtn').on('click', function(){
 });
 
 $('.logOutBtn').on('click', function(){
-	console.log('log out');
 	Parse.User.logOut();
  	var currentUser = Parse.User.current();
+ 	App.myRouter.navigate("", { trigger:true });
 });
 // $('.viewProjectsSlideBtn').on('click', function(){
 // 	$('#projectsSlide').toggleClass('show');

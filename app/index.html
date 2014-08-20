@@ -101,7 +101,7 @@
       </div>
 
     {{#each journals}}
-      <div class="journalContainer" id='{{objectId}}'>
+      <div class="journalContainer" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
         <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>
         <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
         <div class="journalDate">{{journalDate}}</div>

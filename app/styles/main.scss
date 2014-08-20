@@ -127,6 +127,8 @@ $stickyNoteColor:#E9EBFF;
   border:1px solid black;
   float:left;
   margin:30px;
+  background-color:white;
+  position:absolute;
 }
 
 .deleteJournalBtn{
@@ -169,8 +171,8 @@ $stickyNoteColor:#E9EBFF;
 }
 
 .projectContainer{
-  width: 150px;
-  height: 210px;
+  width: 220px;
+  height: 160px;
   border: 1px solid black;
   margin:30px;
   float:left;

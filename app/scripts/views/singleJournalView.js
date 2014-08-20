@@ -1,18 +1,18 @@
-var SingleJournalView = Backbone.Model.extend({
+var SingleJournalView = Backbone.View.extend({
 
 	className: 'singleJournal',
 
 	events:{
-		
+
 	},
 
 	initialize: function(attributes){
-		this.render();
 		this.singleJournal = this.collection.get(attributes.journalid);
-		// console.log(attributes.journalid);
+		var myCollection = this.collection;	
+		this.render();
 	},
 
-	render: function(){
+	render: function(attributes){
 		// var journalid = $(event.target).attr('id');
 		console.log(this.singleJournal);
 		var singleJournalView_template = Handlebars.compile($('#singleJournalView-template').html());
@@ -21,4 +21,5 @@ var SingleJournalView = Backbone.Model.extend({
 		$('.renderedStickies').html(renderingElement);
 		this.delegateEvents();
 	}
+	   
 });

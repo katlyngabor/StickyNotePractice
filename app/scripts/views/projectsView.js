@@ -53,12 +53,7 @@ var ProjectView = Backbone.View.extend({
 		e.preventDefault();
 		e.stopPropagation();
 		var projectid = $(event.target).attr('id');
-		// var query = new Parse.Query("mainStickies");
-		// query.equalTo("project", projectid);
-		// query.find({	
-		//   success: function(results) {
-		//   	console.log(results);
-		  	App.myRouter.navigate('#project/'+projectid, { trigger: true });
+	 	App.myRouter.navigate('#project/'+projectid, { trigger: true });
 	},
 		
 		// var projectid = $(event.target).attr('id'
