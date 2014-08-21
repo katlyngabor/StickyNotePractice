@@ -25,11 +25,68 @@ SingleProjectView = Backbone.View.extend({
 		  		});
 		  		$('.renderedStickies').html(stickiesProject);
 		  	}
-		  	else {
-		  		$('.renderedStickies').html('This project is lonely... Add something, if you please.')
-		  	}
 			}
-		})
+		})	
+		var query2 = new Parse.Query("mainJournals");
+		query.equalTo("project",projectid);
+		query.find({
+			success: function(results) {
+				if(results.length > 0){
+					var journalsProject = '';
+					results.forEach(function(journal){
+						journalsProject += "<div class='journalContainer'>" + journal.get('title') + "</div>";
+					});
+
+					$('.renderedStickies').append(journalsProject);
+					// $('.renderedStickies').html(journalsProject);
+					// console.log(journalsProject);
+				}	
+				else{
+					console.log('hi');
+				}
+			}
+	})
+
+		// $('.column2').draggable();
+		// $('.journalContainer').draggable();
+
+		// var coordinates = function(element) {
+		// 		element = $(event.target);
+		// 		var top = element.position().top;
+		// 		var left = element.position().left;
+		// 		var stickyid = element.attr('id');
+		// 		var singleSticky = collectionVariable.get(stickyid);
+		// 		singleSticky.save({
+		// 			topLocation: top,
+		// 			leftLocation: left
+		// 		})
+		// 	}
+
+		// 	$(".column2").draggable({
+		//     stop: function() {
+		//         coordinates('.column');
+		//     }
+		// 	})
+	 //    .click(function(){
+	 //       if ( $(this).is('.ui-draggable-dragging') ) {
+	 //            return;
+	 //       }
+	 //       $(this).draggable( "option", "disabled", true );
+	 //       $(this).attr('contenteditable','true');
+	 //    })
+	 //    .blur(function(){
+	 //      $(this).draggable( 'option', 'disabled', false);
+	 //      $(this).attr('contenteditable','false');
+	 //      var setZindex = 0;
+	 //      $(this).each(function() {
+	 //        var z = parseInt($(this).css('z-index'));
+	 //        if(isNaN(z)) z = 0;
+	 //        if(z > setZindex) setZindex = z;
+	 //   		 });
+	 //    	$(this).css('z-index', setZindex+1);
+
+	 //    });
+
 	},
 
 	closeSingleView: function(e){

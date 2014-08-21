@@ -94,16 +94,20 @@
       <button class="addJournalBtn">New Journal</button>
       <div class="overlay">
         <div class="journaling">Journaling</div>
-        <input class="journalTitleInput" placeholder="What's in a name?"></>
-        <textarea class="journalInput" placeholder="Words, words, words..."></textarea>
+        <input class="journalTitleInput" placeholder="What's in a name?" value='{{title}}' />
+        <textarea class="journalInput" placeholder="Words, words, words...">{{content}}
+        </textarea>
         <button class="submitJournalBtn">Publish</button>
         <button class="cancelJournalBtn">Nevermind</button>
       </div>
 
     {{#each journals}}
-      <div class="journalContainer" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
-        <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>
-        <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
+
+      <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
+        <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>  
+        <div class="journalTitleContainer">
+          <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
+        </div>
         <div class="journalDate">{{journalDate}}</div>
         {{#if tags}}
            <p class="tags">Tags:{{tags}}</p>

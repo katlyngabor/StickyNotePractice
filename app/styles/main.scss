@@ -219,7 +219,13 @@ button{
   margin:30px;
   background-image:url('../images/comp_notebook.jpg');
   position:absolute;
-  padding-top: 120px;
+  padding-top: 2px;
+}
+
+.journalTitleContainer{
+  float:left;
+  margin-left:10px;
+  margin-top:110px;  
 }
 
 .journalTitleBtn{
@@ -256,7 +262,11 @@ button{
 }
 
 .deleteJournalBtn{
-  @include editLinks;
+  font-size:20px;
+  color:white;
+  float:left;
+  text-decoration:none;
+  padding-left:5px;
 }
 
 //Projects Slide styles
@@ -296,11 +306,11 @@ button{
 
 .projectContainer{
   width: 220px;
-  height: 160px;
+  height: 200px;
   border: 1px solid black;
   margin:30px;
   float:left;
-  // background-image:url('../images/folder-icon-256x256.png') 
+  background-image:url('../images/leather_folder_brown4.png'); 
 }
 
 .deleteProjectBtn{

@@ -17,7 +17,6 @@ var JournalView = Backbone.View.extend({
 	initialize: function(){
 		this.render();
 		// $('.sticky-container').removeClass();
-		$('.sticky-container').css('background-image', 'none');
 		// this.collection.on('change', this.render, this);
 		// this.collection.on('destroy', this.render, this);
 		// this.collection.on('add', this.render, this);  
@@ -80,8 +79,7 @@ var JournalView = Backbone.View.extend({
 	submitJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
-		$('.overlay').toggleClass('shown');
-
+	
 		var new_journal = new JournalModel({
 			title: $('.journalTitleInput').val(),
   		content: $('.journalInput').val()

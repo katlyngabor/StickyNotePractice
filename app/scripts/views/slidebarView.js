@@ -27,17 +27,47 @@ var sideBarProjectsView = Backbone.View.extend({
 	    	var projectid = $(event.target).attr('id');
 	    	var stickyid = $(ui.draggable[0]).attr('id');
 	    	var a = $(ui.draggable[0]).attr('rel');
-	    	alert(a);
 
+	    	if(a == "sticky"){
 				var singleSticky = newStickyCollection.get(stickyid);
   			singleSticky.save({
   				project: projectid
   			});
+  			$(ui.draggable[0]).css('display', 'none');
+  		}
+  			if(a == "journal"){
+  				$( ".projectContainer" ).on( "dropover", function( event, ui ) {
+						$(ui.draggable[0]).css('width', '50px');
+						$(ui.draggable[0]).css('height', '80px');
+						$(ui.draggable[0]).css('background-image', 'url("../images/comp_notebook small.jpg")');
+						$('.deleteJournalBtn').css('font-size','8px');
+			 		});
+  				var singleJournal = newJournalCollection.get(stickyid);
+  				singleJournal.save({
+  					project: projectid
+  				})
+  				$(ui.draggable[0]).css('display', 'none');
+  			}
 	    }
 
 	   });
 
-	}
+	
+			// $( ".projectContainer" ).on( "dropover", function( event, ui ) {
+			// 	$(ui.draggable[0]).css('width', '50px');
+			// 	$(ui.draggable[0]).css('height', '80px');
+			// 	$(ui.draggable[0]).css('background-image', 'url("../images/comp_notebook small.jpg")');
+			// 	$('.deleteJournalBtn').css('font-size','8px');
+			// 	$('.journalTitleBtn').css('display', 'none');	
+			//  });
+		
+	
+	// if $(ui.draggable[0].attr('rel') == "sticky"){
+	// 	$( ".projectContainer" ).on( "dropover", function( event, ui ) {
+	// 		$(ui.draggable[0]).css('width', '50px');
+	// 		$(ui.draggable[0]).css('height', '80px');
+	// 	});
+	// }
 
 		// addNewProject: function(e){
 		// 	e.preventDefault();
@@ -55,9 +85,7 @@ var sideBarProjectsView = Backbone.View.extend({
 
 		// }
 
-
-
-
+	}
 
 });
 
