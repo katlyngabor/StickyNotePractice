@@ -303,7 +303,7 @@ button{
   right:-240px;
   position:absolute;
   overflow-x:visible;
-  overflow-y:scroll;
+  overflow-y:visible;
   z-index:1;
   @include transition-property(left);
   @include transition-duration(1s);

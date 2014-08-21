@@ -18,7 +18,7 @@ var sideBarProjectsView = Backbone.View.extend({
 		var project_template = Handlebars.compile($('#projects-template').html());
 		var rendered = project_template( {projects:this.collection.toJSON() })
 		var renderingElement = this.$el.html(rendered);
-		$('#projectsSlide').html(renderingElement);
+		$('try').html(renderingElement);
 		this.delegateEvents();
 
 
