@@ -30,10 +30,9 @@
   <body>
 
 
-    <button class="logOutBtn">Logout</button>
-    <button class="viewProjectsSlideBtn">View Projects</button>
+    <a class="logOutBtn" href="logOut">Logout</a>
     <div id="projectsSlide">
-       <button class="addNewProjectBtn" id="{{objectId}}">Create Project</button>
+       <button class="viewProjectsSlideBtn">View Projects</button>
     </div> 
 
     <div id="menu">
@@ -103,7 +102,7 @@
 
     {{#each journals}}
 
-      <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px;">
+      <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; ">
         <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>  
         <div class="journalTitleContainer">
           <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
@@ -155,7 +154,9 @@
           <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
           <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>  </div>
         <div class='hoverContainer'>
-          <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
+          <div class="projectTitleContainer">
+            <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
+          </div>
           <div class="projectDescription">{{projectDescription}}</div>
         </div>
       {{/each}}

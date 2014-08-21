@@ -10,7 +10,7 @@ var SingleJournalView = Backbone.View.extend({
 	},
 
 	initialize: function(attributes){
-		$('.sticky-container').removeClass();
+		// $('.sticky-container').removeClass();
 		this.singleJournal = this.collection.get(attributes.journalid);
 		var myCollection = this.collection;	
 		this.render();
@@ -30,7 +30,7 @@ var SingleJournalView = Backbone.View.extend({
 		App.myRouter.navigate('editJournal/'+journalid, { trigger: true });
 
 	}
-
+	
 	
 
 	// 	var journalid = $(event.target).attr('id');

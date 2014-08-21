@@ -11,6 +11,7 @@ var sideBarProjectsView = Backbone.View.extend({
 		this.collection.on('change', this.render, this);
 		this.collection.on('destroy', this.render, this);
 		this.collection.on('add', this.render, this);
+		$('.addNewProjectBtn').hide();
 	},
 
 	render: function(){

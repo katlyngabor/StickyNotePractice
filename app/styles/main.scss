@@ -29,12 +29,32 @@ html {
 }
 
 button{
-  background-color:#996F4B;
+  background-color:#760A2E;
   font-family: 'Archivo Narrow', sans-serif;
   border-radius:10px;
   padding:10px;
   font-size:15px;
   color:white;
+  border:none;
+
+    &:hover{
+      background-color:black;
+    }
+}
+
+.logOutBtn{
+  margin-right:60px;
+  margin-top:20px;
+  color:black;
+  float:right;
+  text-decoration:none;
+  font-size:25px;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.addNewStickyBtn{
+  margin-left:20px;
+  margin-top:20px;
 }
 
 .loginContainer{
@@ -272,20 +292,18 @@ button{
 }
 
 //Projects Slide styles
-
-.viewProjectsSlideBtn{
-  float:right;
-}
-
+  
 #projectsSlide{
+  position:relative;
   width:260px;
   height:1000px;
   background-color: #faf7f0;
-  border:15px solid black;
+  // border:15px solid blue;
   margin-top:20px;
-  left: 1900px;
+  right:-240px;
   position:absolute;
-  overflow:scroll;
+  overflow-x:visible;
+  overflow-y:scroll;
   z-index:1;
   @include transition-property(left);
   @include transition-duration(1s);
@@ -293,10 +311,23 @@ button{
   // z-index:1000;
 
   &.show {
-    left: 1020px;
+    right:0px;
   }
 }
 
+
+.viewProjectsSlideBtn{
+
+    position:absolute;
+    z-index:4;
+    margin-left:-50px;
+    margin-top:30px;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg); 
+}
 //Project styles
 
 .addNewProjectBtn{
@@ -308,9 +339,8 @@ button{
 }
 
 .projectContainer{
-  width: 220px;
-  height: 200px;
-  border: 1px solid black;
+  width: 250px;
+  height: 250px;
   margin:30px;
   float:left;
   background-image:url('../images/leather_folder_brown4.png'); 
@@ -351,6 +381,14 @@ button{
   margin-bottom:30px;
   width:400px;
   height:100px;
+}
+
+.projectTitleContainer{
+  margin-top:90px;  
+}
+
+.projectTitleBtn{
+  font-size:20px;
 }
 
 .submitProjectInfo{
