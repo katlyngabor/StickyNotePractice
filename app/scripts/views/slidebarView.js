@@ -22,10 +22,13 @@ var sideBarProjectsView = Backbone.View.extend({
 
 
 		$('.projectContainer').droppable({
-	    accept: '.column',
+	    // accept: '.column',
 	    drop: function( event, ui) {
 	    	var projectid = $(event.target).attr('id');
 	    	var stickyid = $(ui.draggable[0]).attr('id');
+	    	var a = $(ui.draggable[0]).attr('rel');
+	    	alert(a);
+
 				var singleSticky = newStickyCollection.get(stickyid);
   			singleSticky.save({
   				project: projectid
@@ -34,23 +37,23 @@ var sideBarProjectsView = Backbone.View.extend({
 
 	   });
 
-	},
+	}
 
-		addNewProject: function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			var new_project = new ProjectModel({
-				stickies:[],
-				journals:[]
-	  	});
+		// addNewProject: function(e){
+		// 	e.preventDefault();
+		// 	e.stopPropagation();
+		// 	var new_project = new ProjectModel({
+		// 		stickies:[],
+		// 		journals:[]
+	 //  	});
 
-				new_project.save(null,{
-		    success:function(new_project) {
-		     	newProjectCollection.add(new_project);
-		    }	
-		  });
+		// 		new_project.save(null,{
+		//     success:function(new_project) {
+		//      	newProjectCollection.add(new_project);
+		//     }	
+		//   });
 
-		}
+		// }
 
 
 

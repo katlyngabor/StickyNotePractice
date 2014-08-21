@@ -19,13 +19,14 @@ SingleProjectView = Backbone.View.extend({
 		query.find({	
 		  success: function(results) {
 		  	if (results.length > 0){
+		  		var stickiesProject = '';
 		  		results.forEach(function(sticky){
-			  		var stickiesProject = sticky.get('content');
-			  		$('.renderedStickies').html(stickiesProject);
-		  		})
+			  		stickiesProject += "<div class='column2'>" + sticky.get('content') + "</div>";
+		  		});
+		  		$('.renderedStickies').html(stickiesProject);
 		  	}
 		  	else {
-		  		$('.renderedStickies').html('Add some brilliance to this project :)')
+		  		$('.renderedStickies').html('This project is lonely... Add something, if you please.')
 		  	}
 			}
 		})

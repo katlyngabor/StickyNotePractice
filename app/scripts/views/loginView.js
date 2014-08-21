@@ -1,6 +1,6 @@
 var LoginView = Backbone.View.extend({
 
-	className: 'loginContainers',
+	className: 'loginContainer',
 
 	events: {
 		'click .loginBtn' : 'logIn',
@@ -10,6 +10,8 @@ var LoginView = Backbone.View.extend({
 	}, 
 
 	initialize: function(){
+		$('.sticky-container').removeClass();
+		$('#menu').hide();	
 		this.render();
 	},
 
@@ -20,6 +22,7 @@ var LoginView = Backbone.View.extend({
 		$('.renderedStickies').html(renderingElement);
 		$('.viewProjectsSlideBtn').hide();
 		$('#projectsSlide').hide();
+		$('.logOutBtn').hide();
 		this.delegateEvents();
 	},
 
@@ -27,6 +30,7 @@ var LoginView = Backbone.View.extend({
 
 			Parse.User.logIn($('#loginInput').val(), $('#passwordInput').val(), {
 			  success: function(user) {
+			  	$('.sticky-container').addClass('sticky-container');
 			 		App.myRouter.navigate('', { trigger: true });
 
 			  },
@@ -63,6 +67,13 @@ var LoginView = Backbone.View.extend({
 		  	}
 			});
 
+		},
+
+		returningUser: function(){
+			var login_template = Handlebars.compile($('#login-template').html());
+			var rendered = login_template();
+			var renderingElement = this.$el.html(rendered);
+			$('.renderedStickies').html(renderingElement);
 		}
 
 });

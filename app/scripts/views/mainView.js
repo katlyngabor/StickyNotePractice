@@ -10,6 +10,7 @@
 		},
 
 		initialize: function(){	
+			$('.sticky-container').addClass('sticky-container');
 			this.render();
 			this.collection.on('change', this.render, this);
 			this.collection.on('destroy',this.render, this);

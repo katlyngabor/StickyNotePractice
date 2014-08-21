@@ -3,7 +3,8 @@
 
 // Custom Styless
 $buttonLinkColor:#c47499;
-$stickyNoteColor:#E9EBFF;
+$stickyNoteColor:#F9D65A;
+$loginBackgroundColor:#faf7f0;
 
 @mixin editLinks{
   padding-left:3px;
@@ -15,18 +16,91 @@ $stickyNoteColor:#E9EBFF;
   }
 }
 
+// body{
+//   background-image: url('../images/typewriterforweb.gif');
+// }
+
+html { 
+  background: url('../images/typewriterforweb.gif') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+button{
+  background-color:#996F4B;
+  font-family: 'Archivo Narrow', sans-serif;
+  border-radius:10px;
+  padding:10px;
+  font-size:15px;
+  color:white;
+}
+
+.loginContainer{
+  @include span-columns(6);
+  height:100px;
+  width:300px;
+  margin-left: 390px;
+  // background-color:$loginBackgroundColor;
+  background-color:transparent;
+  text-align:center;
+  margin-top:85px;
+    .jot{
+      font-size:6em;
+      font-family: 'Shadows Into Light', cursive;
+    }
+    input{
+      margin:15px;
+      background-color:$loginBackgroundColor;
+    }
+    button{
+      margin:10px;
+      background-color:#472F30;
+      color:$loginBackgroundColor;
+      font-family: 'Shadows Into Light', cursive;
+      border-radius:10px;
+      padding:5px;
+      font-size:15px;
+    }
+}
+
+//Stickies styles
 #menu{
-  text-decoration:none;
+  margin: 0 auto;
+  width:520px;
+  height:60px;
+  margin-left:395px;
+  font-size:2em;
+    & a{
+      padding:10px;
+      & a:hover{
+        font-size:2.5em;
+      }
+    }
+    #menu:link{
+      color:black;
+      text-decoration:none;
+    }
+
 }
 
 .sticky-container{
-  // position:relative;
+  position:relative;
   @include span-columns(11);
   // background-image: url(../images/cork_1.png);
   height:1000px;
-  background-color:white;
-  border: 15px solid black;
+  // background-color:#F2EEDD;
+  background-image: url('../images/a.jpg');
+  border: 20px solid black;
   margin-left:52px;
+  margin-top:20px;
+
+  // -webkit-filter: blur(5px);
+  // -moz-filter: blur(5px);
+  // -o-filter: blur(5px);
+  // -ms-filter: blur(5px);
+  // filter: blur(5px);
 }
 
 .column{
@@ -41,7 +115,10 @@ $stickyNoteColor:#E9EBFF;
   box-shadow: inset 0 0 3px #000;
   position:absolute;
   // text-align: center;
-
+    textarea{
+      border:none;
+      margin-left:9px;
+    }
     .saveStickyBtn{
      @include editLinks;
     }
@@ -70,6 +147,19 @@ $stickyNoteColor:#E9EBFF;
       margin-top:12px;
     }
   }
+
+.column2{
+  height: 210px;
+  width: 200px;
+  // float: left;
+  border: 1px solid;
+  background-color: $stickyNoteColor;
+  margin-right: 5px;
+  -webkit-box-shadow: inset 0 0 3px #000;
+  -ms-box-shadow: inset 0 0 3px #000;
+  box-shadow: inset 0 0 3px #000;
+  float:left;
+}
 
  .sticky-content{
   background-color:$stickyNoteColor;
@@ -122,13 +212,47 @@ $stickyNoteColor:#E9EBFF;
 }
 
 .journalContainer{
-  width: 150px;
-  height: 210px;
+  width: 190px;
+  height: 300px;
   border:1px solid black;
   float:left;
   margin:30px;
-  background-color:white;
+  background-image:url('../images/comp_notebook.jpg');
   position:absolute;
+  padding-top: 120px;
+}
+
+.journalTitleBtn{
+  text-decoration:none;
+  margin-left: 55px;
+  font-family: 'Shadows Into Light', cursive;
+  width:200px;
+  &.journalTitleBtn:link{
+    color:black;
+  }
+}
+
+.singleJournalContainer{
+  margin-top:100px;
+  margin-left:200px;
+  width:800px;
+  background-color:white;
+}
+
+.singleJournalTitle{
+  text-align:center;
+  padding-top:60px;
+  font-size:2.3em;
+}
+
+.singleJournalContent{
+  margin-left:90px;
+  padding-top:40px;
+  font-size:1.1em;
+}
+
+.editSingleJournalBtn{
+  margin:50px;
 }
 
 .deleteJournalBtn{
@@ -144,9 +268,9 @@ $stickyNoteColor:#E9EBFF;
 #projectsSlide{
   width:260px;
   height:1000px;
-  background-color: white;
-  border:15px solid blue;
-  margin-top:50px;
+  background-color: #faf7f0;
+  border:15px solid black;
+  margin-top:20px;
   left: 1600px;
   position:absolute;
   overflow:scroll;
@@ -176,6 +300,7 @@ $stickyNoteColor:#E9EBFF;
   border: 1px solid black;
   margin:30px;
   float:left;
+  // background-image:url('../images/folder-icon-256x256.png') 
 }
 
 .deleteProjectBtn{
@@ -188,10 +313,11 @@ $stickyNoteColor:#E9EBFF;
   position: absolute;
   z-index:1000;
   margin: 0 auto;
-  background-color:grey;
-  margin-left:298px;
+  background-color:#472F30;
+  margin-left:375px;
   margin-top:25px;
   display:none;
+  border-radius:30px;
 
   &.showModal{
     display:block;

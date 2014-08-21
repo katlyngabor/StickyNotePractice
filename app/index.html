@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>StickyNotePractice</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Archivo+Narrow' rel='stylesheet' type='text/css'>
     <!-- build:css styles/main.css -->
 
     <link rel="stylesheet" href="styles/main.css">
@@ -28,6 +28,7 @@
   </head>
 
   <body>
+
 
     <button class="logOutBtn">Logout</button>
     <button class="viewProjectsSlideBtn">View Projects</button>
@@ -50,18 +51,17 @@
 <!-- Login Template -->
 
     <script type="text/x-handlebars-template" id="login-template">
-
+      <div class="jot">Jot</div>
       <input type="text" id="loginInput" placeholder="Who are you?"></>
       <input type="password" id="passwordInput" placeholder="What's your password?"></>
       <button class="loginBtn">Sign In</button>
       <button class="newUserBtn">New User?</button>
-
     </script>
 
 <!-- SignUp Template -->
 
     <script type="text/x-handlebars-template" id="signUp-template">
-
+      <div class="jot">Jot</div>
       <input type="text" id="signUpInput" placeholder="Who are you?"></>
       <input type="password" id="newPasswordInput" placeholder="What's your password?"></>
       <button class="signUpBtn">Sign Up</button>
@@ -75,7 +75,7 @@
        
         <button class="addNewStickyBtn">New Idea</button>
         {{#each stickies}}
-          <div class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
+          <div rel="sticky" class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
             <a class="deleteStickyBtn" href="deleteSticky" id="{{objectId}}">X</a>
             <a class="saveStickyBtn" href="saveSticky" id="{{objectId}}">update</a>
             <textarea class="sticky-content">{{content}}</textarea>
@@ -105,7 +105,6 @@
         <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>
         <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
         <div class="journalDate">{{journalDate}}</div>
-        <div class="journalContent">{{content}}</div>
         {{#if tags}}
            <p class="tags">Tags:{{tags}}</p>
         {{/if}}
@@ -118,10 +117,19 @@
 
     <script type="text/x-handlebars-template" id="singleJournalView-template">
 
-      <div class="singleJournalTitle">{{title}}</div>
-      <div class="singleJournalContent">{{content}}</div>
-      <button class="closeSingleJournalBtn">Close</div>
-      <button class="editSingleJournalBtn">Edit</div>
+      <div class="overlay">
+        <div class="journaling">Journaling</div>
+        <input class="journalTitleInput" placeholder="What's in a name?"></>
+        <textarea class="journalInput" placeholder="Words, words, words..."></textarea>
+        <button class="submitJournalBtn">Publish</button>
+        <button class="cancelJournalBtn">Nevermind</button>
+      </div>
+
+        <div class="singleJournalContainer">
+          <div class="singleJournalTitle">{{title}}</div>
+          <div class="singleJournalContent" contenteditable="true">{{content}}</div>
+          <button class="editSingleJournalBtn">Edit</div>
+        </div>
 
     </script>
   
