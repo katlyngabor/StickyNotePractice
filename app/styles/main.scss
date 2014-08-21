@@ -114,6 +114,7 @@ button{
   -ms-box-shadow: inset 0 0 3px #000;
   box-shadow: inset 0 0 3px #000;
   position:absolute;
+  z-index:3;
   // text-align: center;
     textarea{
       border:none;
@@ -220,6 +221,7 @@ button{
   background-image:url('../images/comp_notebook.jpg');
   position:absolute;
   padding-top: 2px;
+  z-index:3;
 }
 
 .journalTitleContainer{
@@ -281,16 +283,17 @@ button{
   background-color: #faf7f0;
   border:15px solid black;
   margin-top:20px;
-  left: 1600px;
+  left: 1900px;
   position:absolute;
   overflow:scroll;
+  z-index:1;
   @include transition-property(left);
   @include transition-duration(1s);
   @include transition-timing-function(ease);
   // z-index:1000;
 
   &.show {
-    left: 1000px;
+    left: 1020px;
   }
 }
 

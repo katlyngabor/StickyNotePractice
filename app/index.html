@@ -75,7 +75,7 @@
        
         <button class="addNewStickyBtn">New Idea</button>
         {{#each stickies}}
-          <div rel="sticky" class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
+          <div rel="sticky" class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px;">
             <a class="deleteStickyBtn" href="deleteSticky" id="{{objectId}}">X</a>
             <a class="saveStickyBtn" href="saveSticky" id="{{objectId}}">update</a>
             <textarea class="sticky-content">{{content}}</textarea>
@@ -103,7 +103,7 @@
 
     {{#each journals}}
 
-      <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; z-index:{{zIndex}};">
+      <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px;">
         <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>  
         <div class="journalTitleContainer">
           <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
@@ -132,7 +132,7 @@
         <div class="singleJournalContainer">
           <div class="singleJournalTitle">{{title}}</div>
           <div class="singleJournalContent" contenteditable="true">{{content}}</div>
-          <button class="editSingleJournalBtn">Edit</div>
+          <button class="editSingleJournalBtn" id='{{objectId}}'>Edit</div>
         </div>
 
     </script>
@@ -207,6 +207,7 @@
         <script src="scripts/views/projectsView.js"></script>
         <script src="scripts/views/slidebarView.js"></script>
         <script src="scripts/views/singleJournalView.js"></script>
+        <script src="scripts/views/editJournalView.js"></script>
         <script src="scripts/views/singleProjectView.js"></script>
         <script src="scripts/router.js/router.js"></script>
         <script src="scripts/main.js"></script>

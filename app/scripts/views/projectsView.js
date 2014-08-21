@@ -58,8 +58,6 @@ var ProjectView = Backbone.View.extend({
 	},
 		
 		// var projectid = $(event.target).attr('id'
-		
-
 	addNewProject: function(e){
 		e.preventDefault();
 		e.stopPropagation();

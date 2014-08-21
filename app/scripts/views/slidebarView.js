@@ -32,7 +32,7 @@ var sideBarProjectsView = Backbone.View.extend({
 				var singleSticky = newStickyCollection.get(stickyid);
   			singleSticky.save({
   				project: projectid
-  			});
+  			})
   			$(ui.draggable[0]).css('display', 'none');
   		}
   			if(a == "journal"){

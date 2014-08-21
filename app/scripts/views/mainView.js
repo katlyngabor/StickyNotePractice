@@ -44,25 +44,25 @@
 		        coordinates('.column');
 		    }
 			})
-	    .click(function(){
-	       if ( $(this).is('.ui-draggable-dragging') ) {
-	            return;
-	       }
-	       $(this).draggable( "option", "disabled", true );
-	       $(this).attr('contenteditable','true');
-	    })
-	    .blur(function(){
-	      $(this).draggable( 'option', 'disabled', false);
-	      $(this).attr('contenteditable','false');
-	      var setZindex = 0;
-	      $(this).each(function() {
-	        var z = parseInt($(this).css('z-index'));
-	        if(isNaN(z)) z = 0;
-	        if(z > setZindex) setZindex = z;
-	   		 });
-	    	$(this).css('z-index', setZindex+1);
+	    // .click(function(){
+	    //    if ( $(this).is('.ui-draggable-dragging') ) {
+	    //         return;
+	    //    }
+	    //    $(this).draggable( "option", "disabled", true );
+	    //    $(this).attr('contenteditable','true');
+	    // })
+	    // .blur(function(){
+	    //   $(this).draggable( 'option', 'disabled', false);
+	    //   $(this).attr('contenteditable','false');
+	    //   var setZindex = 2;
+	    //   $(this).each(function() {
+	    //     var z = parseInt($(this).css('z-index'));
+	    //     if(isNaN(z)) z = 2;
+	    //     if(z > setZindex) setZindex = z;
+	   	// 	 });
+	    // 	$(this).css('z-index', setZindex+1);
 
-	    });
+	    // });
 	    
 			}, 
 

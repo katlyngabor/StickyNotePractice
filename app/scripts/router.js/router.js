@@ -7,7 +7,8 @@ var Router = Backbone.Router.extend({
 		"Journal" : 'journals',
 		"Project" : 'projects',
     "project/:id" : 'singleProject',
-    "journal/:id" : 'singleJournal'
+    "journal/:id" : 'singleJournal',
+    "editJournal/:id" : 'editJournal'
 	},
 
 	login: function(){
@@ -63,7 +64,19 @@ var Router = Backbone.Router.extend({
       } else {
         App.myRouter.navigate("login", {trigger: true});
       }
-    }
+  },
+
+  editJournal: function(id){
+    var currentUser = Parse.User.current();
+      if (currentUser) {
+        var newEditJournalView = new EditJournalView( {journalid: id, collection: newJournalCollection} ); 
+      } else {
+        App.myRouter.navigate("login", {trigger: true});
+      }
+
+  }
+
+
 
 
 	// logInScreen: function(){
