@@ -3,12 +3,12 @@
 
 // Custom Styless
 $buttonLinkColor:#c47499;
-$stickyNoteColor:#F9D65A;
+$stickyNoteColor:#00997d;
 $loginBackgroundColor:#faf7f0;
 
 @mixin mainBtns{
   text-decoration:none;
-  color:red;
+  color:black;  
 }
 
 @mixin editLinks{
@@ -37,19 +37,19 @@ html {
   background-size: cover;
 }
 
-button{
-  background-color:#760A2E;
-  font-family: 'Archivo Narrow', sans-serif;
-  border-radius:10px;
-  padding:10px;
-  font-size:15px;
-  color:white;
-  border:none;
+// button{
+//   background-color:#760A2E;
+//   font-family: 'Archivo Narrow', sans-serif;
+//   border-radius:10px;
+//   padding:10px;
+//   font-size:15px;
+//   color:white;
+//   border:none;
 
-    &:hover{
-      background-color:black;
-    }
-}
+//     &:hover{
+//       background-color:black;
+//     }
+// }
 
 .logOutBtn{
   margin-right:150px;
@@ -130,14 +130,18 @@ button{
 
 .sticky-container{
   position:relative;
-  @include span-columns(11);
-  // background-image: url(../images/cork_1.png);
-  height:1000px;
+  @include span-columns(10);
+  height:900px;
   // background-color:#F2EEDD;
   background-image: url('../images/a.jpg');
   border: 20px solid black;
-  margin-left:52px;
+  margin-left:100px;
   margin-top:20px;
+  margin-bottom:100px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  background: rgba(224, 224, 224, 0.5); 
+  // opacity: 0.6;
 
   // -webkit-filter: blur(5px);
   // -moz-filter: blur(5px);
@@ -149,7 +153,6 @@ button{
 .column{
   height: 210px;
   width: 200px;
-  // float: left;
   border: 1px solid #666666;
   background-color: $stickyNoteColor;
   margin-right: 5px;
@@ -158,7 +161,7 @@ button{
   box-shadow: inset 0 0 3px #000;
   position:absolute;
   z-index:3;
-  // text-align: center;
+  color:white;
     textarea{
       border:none;
       margin-left:9px;
@@ -241,10 +244,14 @@ button{
   font-size:23px;
 }
 
-.journalTitleInput{
-  display:block;
-  margin: 0 auto;
-  margin-bottom:35px;
+.journalTitleBtn {
+  margin-left: 20px;
+  font-family: 'Shadows Into Light', cursive;
+  width: 100px;
+  border:none;
+  background-color:white;
+  text-align:left;
+  outline:none;
 }
 
 .journalInput{
@@ -267,25 +274,28 @@ button{
   z-index:3;
 }
 
+.journalContainer2{
+  width: 190px;
+  height: 300px;
+  border:1px solid black;
+  float:left;
+  margin:30px;
+  background-image:url('../images/comp_notebook.jpg');
+  padding-top: 2px;
+  z-index:3;
+  padding-top:110px;
+  padding-left:60px;
+}
+
 .journalTitleContainer{
   float:left;
   margin-left:10px;
   margin-top:110px;  
 }
 
-.journalTitleBtn{
-  text-decoration:none;
-  margin-left: 55px;
-  font-family: 'Shadows Into Light', cursive;
-  width:200px;
-  &.journalTitleBtn:link{
-    color:black;
-  }
-}
-
 .singleJournalContainer{
   margin-top:100px;
-  margin-left:200px;
+  margin-left:120px;
   width:800px;
   background-color:white;
 }
@@ -312,6 +322,9 @@ button{
   float:left;
   text-decoration:none;
   padding-left:5px;
+  background-color:black;
+  outline:none;
+  border:none;
 }
 
 //Projects Slide styles

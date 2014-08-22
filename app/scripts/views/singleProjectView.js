@@ -35,7 +35,7 @@ SingleProjectView = Backbone.View.extend({
 				if(results.length > 0){
 					var journalsProject = '';
 					results.forEach(function(journal){
-						journalsProject += "<div class='journalContainer'>" + journal.get('title') + "</div>";
+						journalsProject += "<div class='journalContainer2'>" + journal.get('title') + "</div>";
 					});
 
 					$('.renderedStickies').append(journalsProject);

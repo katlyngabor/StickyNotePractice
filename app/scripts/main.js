@@ -21,6 +21,10 @@ newProjectCollection.fetch().done(function(){
 	});
 });
 
+$('.IdeaBoardBtn').on('click',function(){
+	App.myRouter.navigate("", { trigger: true });
+});
+
 $('.JournalsBtn').on('click', function(){
 	App.myRouter.navigate("Journal", { trigger: true });
 });

@@ -96,6 +96,7 @@ var JournalView = Backbone.View.extend({
 	deleteJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
+		console.log('deleting');
 		var journalid = $(event.target).attr('id');
 		var singleJournal = this.collection.get(journalid);
 		if (window.confirm("Are you sure you want to delete this post?")) {
