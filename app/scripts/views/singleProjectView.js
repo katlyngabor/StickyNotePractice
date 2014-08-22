@@ -3,7 +3,9 @@ SingleProjectView = Backbone.View.extend({
 	className: 'singleProject',
 
 	events:{
-		'click .closeSingleViewBtn' : 'closeSingleView'
+		'click .closeSingleViewBtn' : 'closeSingleView',
+		'click .deleteItemBtn' : 'deleteItem',
+		'click .viewItemBtn' : 'viewItem'
 	},
 
 	initialize: function(attributes){
@@ -46,48 +48,18 @@ SingleProjectView = Backbone.View.extend({
 					console.log('hi');
 				}
 			}
-	})
+		})
+	
+	},
 
-		// $('.column2').draggable();
-		// $('.journalContainer').draggable();
-
-		// var coordinates = function(element) {
-		// 		element = $(event.target);
-		// 		var top = element.position().top;
-		// 		var left = element.position().left;
-		// 		var stickyid = element.attr('id');
-		// 		var singleSticky = collectionVariable.get(stickyid);
-		// 		singleSticky.save({
-		// 			topLocation: top,
-		// 			leftLocation: left
-		// 		})
-		// 	}
-
-		// 	$(".column2").draggable({
-		//     stop: function() {
-		//         coordinates('.column');
-		//     }
-		// 	})
-	 //    .click(function(){
-	 //       if ( $(this).is('.ui-draggable-dragging') ) {
-	 //            return;
-	 //       }
-	 //       $(this).draggable( "option", "disabled", true );
-	 //       $(this).attr('contenteditable','true');
-	 //    })
-	 //    .blur(function(){
-	 //      $(this).draggable( 'option', 'disabled', false);
-	 //      $(this).attr('contenteditable','false');
-	 //      var setZindex = 0;
-	 //      $(this).each(function() {
-	 //        var z = parseInt($(this).css('z-index'));
-	 //        if(isNaN(z)) z = 0;
-	 //        if(z > setZindex) setZindex = z;
-	 //   		 });
-	 //    	$(this).css('z-index', setZindex+1);
-
-	 //    });
-
+	deleteItem: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var itemid = $(event.target).attr('id');
+		var singleItem = this.collection.get(itemid);
+		if (window.confirm("Are you sure you want to delete this post?")) {
+      singleItem.destroy();
+		}
 	},
 
 	closeSingleView: function(e){
