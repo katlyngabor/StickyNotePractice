@@ -9,6 +9,7 @@ var EditJournalView = Backbone.View.extend({
 
 	initialize: function(attributes){	
 		// journalid = $(event.target).attr('id');
+		$('#fixThis').addClass('sticky-container');
 		this.singleJournal = this.collection.get(attributes.journalid);
 		console.log(attributes.journalid);	
 		this.render();

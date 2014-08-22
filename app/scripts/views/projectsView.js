@@ -11,7 +11,7 @@ var ProjectView = Backbone.View.extend({
 	},
 
 	initialize: function(){
-		// $('.sticky-container').removeClass();
+		$('#fixThis').addClass('sticky-container');
 		this.render();
 		this.collection.on('change', this.render, this);
 		this.collection.on('destroy', this.render, this);
