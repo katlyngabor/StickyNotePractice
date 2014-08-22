@@ -20,6 +20,10 @@ $loginBackgroundColor:#faf7f0;
 //   background-image: url('../images/typewriterforweb.gif');
 // }
 
+body{
+  clear:both;
+}
+
 html { 
   background: url('../images/typewriterforweb.gif') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -345,8 +349,28 @@ button{
   background-image:url('../images/leather_folder_brown4.png'); 
 }
 
+.deleteCont{
+  margin-top:33px;
+  margin-left:29px;
+  font-size:15px;
+
+}
+
+.titleCont{
+  margin-top:40px;
+  margin-left:50px;
+}
+
 .deleteProjectBtn{
   @include editLinks;
+  padding-top:20px;
+}
+
+.projectTitleBtn{
+  text-decoration:none;
+  color:pink;
+  font-family:'Shadows Into Light', cursive;
+  font-size:50px;
 }
 
 .projectModal{

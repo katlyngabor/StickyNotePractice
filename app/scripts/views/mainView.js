@@ -10,7 +10,9 @@
 		},
 
 		initialize: function(){	
-			 $('#fixThis').addClass('sticky-container');
+			$('#menu').show();
+			$('#fixThis').addClass('sticky-container');
+			$('.logoutBtn').show();
 			this.render();
 			this.collection.on('change', this.render, this);
 			this.collection.on('destroy',this.render, this);

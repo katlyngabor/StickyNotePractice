@@ -76,14 +76,16 @@
        
         <button class="addNewStickyBtn">New Idea</button>
         {{#each stickies}}
-          <div rel="sticky" class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px;">
-            <a class="deleteStickyBtn" href="deleteSticky" id="{{objectId}}">X</a>
-            <a class="saveStickyBtn" href="saveSticky" id="{{objectId}}">update</a>
-            <textarea class="sticky-content">{{content}}</textarea>
-              {{#if tags}}
-                <p class="tags">Tags:{{tags}}</p>
-              {{/if}}
-          </div>
+          {{#unless project}}
+            <div rel="sticky" class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px;">
+              <a class="deleteStickyBtn" href="deleteSticky" id="{{objectId}}">X</a>
+              <a class="saveStickyBtn" href="saveSticky" id="{{objectId}}">update</a>
+              <textarea class="sticky-content">{{content}}</textarea>
+                {{#if tags}}
+                  <p class="tags">Tags:{{tags}}</p>
+                {{/if}}
+            </div>
+          {{/unless}}
         {{/each}}  
        
     </script>
@@ -104,16 +106,19 @@
 
     {{#each journals}}
 
-      <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; ">
-        <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>  
-        <div class="journalTitleContainer">
-          <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
+      {{#unless project}}
+        <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; ">
+          <a class="deleteJournalBtn" href="deleteJournal" id='{{objectId}}'>X</a>  
+          <div class="journalTitleContainer">
+            <a class="journalTitleBtn" href="singleJournal" id='{{objectId}}'>{{title}}</a>
+          </div>
+          <div class="journalDate">{{journalDate}}</div>
+          {{#if tags}}
+             <p class="tags">Tags:{{tags}}</p>
+          {{/if}}
         </div>
-        <div class="journalDate">{{journalDate}}</div>
-        {{#if tags}}
-           <p class="tags">Tags:{{tags}}</p>
-        {{/if}}
-      </div>
+      {{/unless}}
+
     {{/each}} 
 
     </script>
@@ -153,8 +158,13 @@
       <button class="addNewProjectBtn" id="{{objectId}}">New Project</button>
       {{#each projects}}
         <div class="projectContainer" id="{{objectId}}">
-          <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
-          <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>  </div>
+          <div class="deleteCont">
+            <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
+          </div>
+          <div class="titleCont">
+          <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>  
+          </div>
+          </div>
         <div class='hoverContainer'>
           <div class="projectTitleContainer">
             <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
