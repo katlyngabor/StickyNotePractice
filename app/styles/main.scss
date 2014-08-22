@@ -115,7 +115,7 @@ html {
   // margin: 0 auto;
   width:500px;
   height:10px;
-  margin-left:170px;
+  margin-left:50px;
   font-size:2em;
   text-decoration:none;
   margin-bottom:0;
@@ -134,8 +134,8 @@ html {
 
 .IdeaBoardBtn, .JournalsBtn, .ProjectsBtn{
   @include mainBtns;
-  color:black;
-  font-size:20px;
+  color:$stickyNoteColor;
+  font-size:25px;
   float:left;
 }
 
