@@ -6,6 +6,11 @@ $buttonLinkColor:#c47499;
 $stickyNoteColor:#F9D65A;
 $loginBackgroundColor:#faf7f0;
 
+@mixin mainBtns{
+  text-decoration:none;
+  color:red;
+}
+
 @mixin editLinks{
   padding-left:3px;
   font-size:10px;
@@ -47,8 +52,8 @@ button{
 }
 
 .logOutBtn{
-  margin-right:60px;
-  margin-top:20px;
+  margin-right:150px;
+  margin-top:15px;
   color:black;
   float:right;
   text-decoration:none;
@@ -108,6 +113,19 @@ button{
       text-decoration:none;
     }
 
+}
+
+.IdeaBoardBtn{
+  @include mainBtns;
+}
+
+.JournalsBtn{
+  @include mainBtns;
+
+}
+
+.ProjectsBtn{
+  @include mainBtns;
 }
 
 .sticky-container{

@@ -12,7 +12,7 @@
 		initialize: function(){	
 			$('#menu').show();
 			$('#fixThis').addClass('sticky-container');
-			$('.logoutBtn').show();
+			$('.logOutBtn').show();
 			this.render();
 			this.collection.on('change', this.render, this);
 			this.collection.on('destroy',this.render, this);
