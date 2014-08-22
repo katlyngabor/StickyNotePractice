@@ -12,6 +12,7 @@ SingleProjectView = Backbone.View.extend({
 	},
 
 	render: function(){
+		$('.renderedStickies').html('');
 		var self = this
 		var projectid = $(event.target).attr('id');
 		var query = new Parse.Query("mainStickies");
@@ -23,13 +24,13 @@ SingleProjectView = Backbone.View.extend({
 		  		results.forEach(function(sticky){
 			  		stickiesProject += "<div class='column2'>" + sticky.get('content') + "</div>";
 		  		});
-		  		$('.renderedStickies').html(stickiesProject);
+		  		$('.renderedStickies').append(stickiesProject);
 		  	}
 			}
 		})	
 		var query2 = new Parse.Query("mainJournals");
-		query.equalTo("project",projectid);
-		query.find({
+		query2.equalTo("project",projectid);
+		query2.find({
 			success: function(results) {
 				if(results.length > 0){
 					var journalsProject = '';
