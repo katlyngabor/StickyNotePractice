@@ -16,10 +16,10 @@ var JournalView = Backbone.View.extend({
 
 	initialize: function(){
 		this.render();
-		// $('.sticky-container').removeClass();
-		// this.collection.on('change', this.render, this);
-		// this.collection.on('destroy', this.render, this);
-		// this.collection.on('add', this.render, this);  
+		$('.sticky-container').removeClass();
+		this.collection.on('change', this.render, this);
+		this.collection.on('destroy', this.render, this);
+		this.collection.on('add', this.render, this);  
 		$('.viewProjectsSlideBtn').show();
 		$('#projectsSlide').show();
 	},
