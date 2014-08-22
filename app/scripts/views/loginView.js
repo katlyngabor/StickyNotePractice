@@ -10,7 +10,7 @@ var LoginView = Backbone.View.extend({
 	}, 
 
 	initialize: function(){
-		$('.sticky-container').removeClass();
+		$('#fixThis').removeClass('sticky-container');
 		$('#menu').hide();	
 		this.render();
 	},

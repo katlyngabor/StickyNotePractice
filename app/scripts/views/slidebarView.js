@@ -18,7 +18,7 @@ var sideBarProjectsView = Backbone.View.extend({
 		var project_template = Handlebars.compile($('#projects-template').html());
 		var rendered = project_template( {projects:this.collection.toJSON() })
 		var renderingElement = this.$el.html(rendered);
-		$('try').html(renderingElement);
+		$('.try').html(renderingElement);
 		this.delegateEvents();
 
 
@@ -35,6 +35,8 @@ var sideBarProjectsView = Backbone.View.extend({
   				project: projectid
   			})
   			$(ui.draggable[0]).css('display', 'none');
+  			console.log(stickyid);
+  			console.log(projectid)
   		}
   			if(a == "journal"){
   				$( ".projectContainer" ).on( "dropover", function( event, ui ) {
@@ -48,6 +50,7 @@ var sideBarProjectsView = Backbone.View.extend({
   					project: projectid
   				})
   				$(ui.draggable[0]).css('display', 'none');
+  				console.log(singleJournal);
   			}
 	    }
 
