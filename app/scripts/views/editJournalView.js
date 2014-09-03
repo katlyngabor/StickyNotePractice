@@ -26,12 +26,14 @@ var EditJournalView = Backbone.View.extend({
 	submitJournal: function(e){
 		e.preventDefault();
 		e.stopPropagation();
+		console.log('submit');
 		var journalid = $(event.target).attr('id');
 		var singleJournal = this.collection.get(this.singleJournal);
   	singleJournal.save({
   		title: $('.journalTitleInput').val(),
   		content: $('.journalInput').val()
   	});	
+  	App.myRouter.navigate('#journal/'+journalid, { trigger: true });
 	},
 
 	cancelJournal: function(e){

@@ -87,11 +87,11 @@ var JournalView = Backbone.View.extend({
 		App.myRouter.navigate('#journal/'+journalid, { trigger: true });
 	},
 
-	editJournal: function(){
-		e.preventDefault();
-		e.stopPropagation();
+	// editJournal: function(){
+	// 	e.preventDefault();
+	// 	e.stopPropagation();
 
-	},
+	// },
 
 	deleteJournal: function(e){
 		e.preventDefault();

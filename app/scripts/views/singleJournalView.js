@@ -10,20 +10,26 @@ var SingleJournalView = Backbone.View.extend({
 	},
 
 	initialize: function(attributes){
-		// $('.sticky-container').removeClass();
+		// this.render();
+		this.collection.on('change', this.render, this);
+		this.collection.on('destroy',this.render, this);
+		this.collection.on('add', this.render, this);
 		this.singleJournal = this.collection.get(attributes.journalid);
-		var myCollection = this.collection;	
+		// this.myJournal = this.singleJournal;	
 		this.render();
 	},
 
-	render: function(attributes){
+	render: function(){
+		// this.singleJournal = this.collection.get(attributes.journalid);
 		var singleJournalView_template = Handlebars.compile($('#singleJournalView-template').html());
+		console.log(this.singleJournal);
 		var rendered = singleJournalView_template(this.singleJournal.toJSON());
 		var renderingElement = this.$el.html(rendered);
 		$('.renderedStickies').html(renderingElement);
 	},
 
 	editJournal: function(e){
+		console.log('yo');
 		e.preventDefault();
 		e.stopPropagation();
 		var journalid = $(event.target).attr('id');
