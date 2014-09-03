@@ -1,6 +1,6 @@
 My final project for The Iron Yard:
 
-	Jot is an app for writers to organize their ideas. All too often, writers (myself, included) have journals and sticky notes filled with ideas and musings, but in the chaos of it all, they are never are seen again. This app takes the workflow of the writer's idea process and puts it on the web, making organization and storage easy! Individual ideas live on stickies in the Idea Board. Journaling occurs in Journals (shocking), and the real magic happens when you create a Project. Once a writer decides on a play or novel or other future literary masterpiece, he/she creates a Project. Here is where you take the ideas/journals that you have been creating and organize them.
+	Jot is an app for writers to organize their ideas. All too often, writers (myself, included) have journals and sticky notes filled with ideas and musings, but in the chaos of it all, they are never seen again. This app takes the workflow of the writer's idea process and puts it on the web, making organization and storage easy! Individual ideas live on stickies in the Idea Board. Journaling occurs in Journals (shocking), and the real magic happens when you create a Project. Once a writer decides on a play or novel or other future literary masterpiece, he/she creates a Project. Here is where you take the ideas/journals that you have been creating and organize them.
 
 
 	The components:
