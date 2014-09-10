@@ -29,7 +29,6 @@ var SingleJournalView = Backbone.View.extend({
 	},
 
 	editJournal: function(e){
-		console.log('yo');
 		e.preventDefault();
 		e.stopPropagation();
 		var journalid = $(event.target).attr('id');

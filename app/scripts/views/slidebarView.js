@@ -3,6 +3,7 @@ var sideBarProjectsView = Backbone.View.extend({
 	className: 'allSidebarProjects',
 
 	events:{
+		'click .projectTitleBtn' : 'singleView'
 	},
 
 	initialize: function(){
@@ -55,6 +56,14 @@ var sideBarProjectsView = Backbone.View.extend({
 	    }
 
 	   });
+		},
+		singleView: function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$('#projectsSlide').toggleClass('show');
+		var projectid = $(event.target).attr('id');
+	 	App.myRouter.navigate('#project/'+projectid, { trigger: true });
+	}
 
 	
 			// $( ".projectContainer" ).on( "dropover", function( event, ui ) {
@@ -88,9 +97,6 @@ var sideBarProjectsView = Backbone.View.extend({
 		//   });
 
 		// }
-
-	}
-
 });
 
 

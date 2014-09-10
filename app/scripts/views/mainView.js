@@ -10,6 +10,7 @@
 		},
 
 		initialize: function(){	
+			$('.logo').show();
 			$('#menu').show();
 			$('#fixThis').addClass('sticky-container');
 			$('.logOutBtn').show();

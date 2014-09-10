@@ -103,8 +103,8 @@
         <input class="journalTitleInput" placeholder="What's in a name?" value='{{title}}' />
         <textarea class="journalInput" placeholder="Words, words, words...">{{content}}
         </textarea>
-        <button class="submitJournalBtn">Publish</button>
-        <button class="cancelJournalBtn">Nevermind</button>
+        <button class="submitJournalBtn" id="{{objectId}}">Publish</button>
+        <button class="cancelJournalBtn" id="{{objectId}}">Nevermind</button>
       </div>
 
     {{#each journals}}
