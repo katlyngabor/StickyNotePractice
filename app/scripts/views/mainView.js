@@ -9,7 +9,7 @@
 				'click .sticky-content' : 'editSticky'
 		},
 
-		initialize: function(){	
+		initialize: function(){
 			$('#menu').show();
 			$('#fixThis').addClass('sticky-container');
 			$('.logOutBtn').show();
@@ -23,7 +23,7 @@
 
 		render: function(){
 			var sticky_template = Handlebars.compile($("#allStickies-template").html());
-			var rendered = sticky_template({ stickies:this.collection.toJSON() }); 
+			var rendered = sticky_template({ stickies:this.collection.toJSON() });
 			var renderingElement = this.$el.html(rendered);
 			$('.renderedStickies').html(renderingElement);
 			var collectionVariable = this.collection;
@@ -65,8 +65,8 @@
 	    // 	$(this).css('z-index', setZindex+1);
 
 	    // });
-	    
-			}, 
+
+			},
 
 		addSticky : function(e){
 			e.preventDefault();
@@ -74,12 +74,12 @@
 			var new_sticky = new StickyModel({
   			content: $('.stickyText').val()
 
-  			 });	
-  			
+  			 });
+
   			new_sticky.save(null,{
 	    		success:function(new_sticky) {
 	      		newStickyCollection.add(new_sticky);
-	    		}	
+	    		}
 	  		});
 		},
 
@@ -90,7 +90,7 @@
 			var singleSticky = this.collection.get(stickyid);
   		singleSticky.save({
   			content: $(event.target).next().val() //explain this
-  		});	
+  		});
 		},
 
 		deleteSticky: function(e){
@@ -99,11 +99,9 @@
 			e.stopPropagation();
 			var stickyid = $(event.target).attr('id');
 			var singleSticky = this.collection.get(stickyid);
-			if (window.confirm("Are you sure you want to delete this post?")) {
+			if (window.confirm("Are you sure you wanna delete? There are no bad ideas in brainstorming!")) {
       	singleSticky.destroy();
     	}
 		}
 
 });
-
-
