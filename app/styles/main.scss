@@ -13,7 +13,7 @@ $mainFont:'Roboto Condensed', sans-serif;
 
 @mixin mainBtns{
   text-decoration:none;
-  color:black;  
+  color:black;
   font-family:$mainFont;
 }
 
@@ -45,8 +45,8 @@ body{
   margin-top:110px;
 }
 
-html { 
-  background: url('../images/typewriterforweb.gif') no-repeat center center fixed; 
+html {
+  background: url('../images/typewriterforweb.gif') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -146,7 +146,7 @@ html {
   margin-top:0px;
   margin-bottom:100px;
   background-color: #ffffff;
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .column{
@@ -316,7 +316,7 @@ html {
 .journalTitleContainer{
   float:left;
   margin-left:10px;
-  margin-top:110px;  
+  margin-top:110px;
 }
 
 .singleJournalContainer{
@@ -368,7 +368,7 @@ html {
 // }
 
 
-  
+
 #projectsSlide{
   position:absolute;
   width:300px;
@@ -405,7 +405,7 @@ html {
   -moz-transform: rotate(270deg);
   -o-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
-  transform: rotate(270deg); 
+  transform: rotate(270deg);
 
 }
 //Project styles
@@ -426,7 +426,7 @@ html {
   height: 250px;
   margin:30px;
   float:left;
-  background-image:url('../images/leather_folder_brown4.png'); 
+  background-image:url('../images/leather_folder_brown4.png');
 }
 
 .deleteCont{
@@ -491,7 +491,7 @@ html {
 }
 
 .projectTitleContainer{
-  margin-top:90px;  
+  margin-top:90px;
 }
 
 .projectTitleBtn{
@@ -580,5 +580,3 @@ html {
 // .column.over {
 //   border: 2px dashed #000;
 // }
-
-
