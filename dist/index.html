@@ -6,36 +6,193 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>StickyNotePractice</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
     <link rel="stylesheet" href="styles/vendor.css">
-
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Archivo+Narrow' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
 
     <script src="scripts/vendor/modernizr.js"></script>
+
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+
+  <!--   <input type="file" name="uploadField" /> -->
+
   </head>
+
+
+
   <body>
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
+    <div class="logo">Jot</div>
+    <a class="logOutBtn" href="#">Logout</a>
 
-        <li>Sass</li>
+      <div id="projectsSlide">
+        <button class="viewProjectsSlideBtn">View Projects</button>
+        <div class="try"></div>
+      </div> 
 
-
-        <li>Modernizr</li>
-
-
-        <li>Bourbon & Neat</li>
-
-
-        <li>UnderscoreJS</li>
-
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
+    <div id="menu">
+        <a class= "IdeaBoardBtn" href="">Idea Board |</a>
+        <a class="JournalsBtn" href="#Journal">Journal  |</a>
+        <a class= "ProjectsBtn" href="#Project">Projects</a>
     </div>
+    <div id="container">
+      <div class="sticky-container" id="fixThis">
+        <div class="renderedStickies"></div>
+      </div>
+    </div>
+
+
+<!-- Login Template -->
+
+    <script type="text/x-handlebars-template" id="login-template">
+      <div class="jot">Jot</div>
+      <input type="text" id="loginInput" placeholder="Who are you?"></>
+      <input type="password" id="passwordInput" placeholder="What's your password?"></>
+      <button class="loginBtn">Sign In</button>
+      <button class="newUserBtn">New User?</button>
+    </script>
+
+<!-- SignUp Template -->
+
+    <script type="text/x-handlebars-template" id="signUp-template">
+      <div class="jot">Jot</div>
+      <input type="text" id="signUpInput" placeholder="Who are you?"></>
+      <input type="password" id="newPasswordInput" placeholder="What's your password?"></>
+      <button class="signUpBtn">Sign Up</button>
+      <button class="returningUser ">Returning User?</button>
+      
+    </script>
+
+<!-- Stickies Template -->
+     
+    <script type="text/x-handlebars-template" id="allStickies-template">
+       
+        <button class="addNewStickyBtn">New Idea</button>
+        {{#each stickies}}
+          {{#unless project}}
+            <div rel="sticky" class="column" id="{{objectId}}" style="left:{{leftLocation}}px; top:{{topLocation}}px;">
+              <a class="deleteStickyBtn" href="deleteSticky" id="{{objectId}}">X</a>
+              <a class="saveStickyBtn" href="saveSticky" id="{{objectId}}">update</a>
+              <textarea class="sticky-content">{{content}}</textarea>
+                {{#if tags}}
+                  <p class="tags">Tags:{{tags}}</p>
+                {{/if}}
+            </div>
+          {{/unless}}
+        {{/each}}  
+       
+    </script>
+
+<!-- Journals Template -->
+
+    <script type="text/x-handlebars-template" id="journals-template">
+      
+      <button class="addJournalBtn">New Journal</button>
+      <div class="overlay">
+        <div class="journaling">Journaling</div>
+        <input class="journalTitleInput" placeholder="What's in a name?" value='{{title}}' />
+        <textarea class="journalInput" placeholder="Words, words, words...">{{content}}
+        </textarea>
+        <button class="submitJournalBtn">Publish</button>
+        <button class="cancelJournalBtn">Nevermind</button>
+      </div>
+
+    {{#each journals}}
+
+      {{#unless project}}
+        <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; ">
+          <button class="deleteJournalBtn" id='{{objectId}}'>X</button>  
+          <div class="journalTitleContainer">
+            <button class="journalTitleBtn" id='{{objectId}}'>{{title}}</button>
+          </div>
+          <div class="journalDate">{{journalDate}}</div>
+          {{#if tags}}
+             <p class="tags">Tags:{{tags}}</p>
+          {{/if}}
+        </div>
+      {{/unless}}
+
+    {{/each}} 
+
+    </script>
+
+<!-- Single Journal Template -->
+
+    <script type="text/x-handlebars-template" id="singleJournalView-template">
+
+      <div class="overlay">
+        <div class="journaling">Journaling</div>
+        <input class="journalTitleInput" placeholder="What's in a name?"></>
+        <textarea class="journalInput" placeholder="Words, words, words..."></textarea>
+        <button class="submitJournalBtn">Publish</button>
+        <button class="cancelJournalBtn">Nevermind</button>
+      </div>
+
+        <div class="singleJournalContainer">
+          <div class="singleJournalTitle">{{title}}</div>
+          <div class="singleJournalContent" contenteditable="true">{{content}}</div>
+          <button class="editSingleJournalBtn" id='{{objectId}}'>Edit</div>
+        </div>
+
+    </script>
+  
+
+<!-- All Projects Template -->
+
+    <script type="text/x-handlebars-template" id="projects-template">
+
+      <div class="projectModal">
+        <input class="projectTitleInput" placeholder="Project Title"></input>
+        <textarea class="projectDescription" placeholder="Description"></textarea>
+        <button class="submitProjectInfo">Add</button>
+        <button class="cancelProjectInfo">Nevermind</button>
+      </div>
+
+      <button class="addNewProjectBtn" id="{{objectId}}">New Project</button>
+      {{#each projects}}
+        <div class="projectContainer" id="{{objectId}}">
+          <div class="deleteCont">
+            <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
+          </div>
+            <div class="titleCont">
+              <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>  
+            </div>
+          </div>
+        <div class='hoverContainer'>
+          <div class="projectTitleContainer">
+            <div class="projectTitle" id="{{objectId}}">{{projectTitle}}</div>
+          </div>
+          <div class="projectDescription">{{projectDescription}}</div>
+        </div>
+      {{/each}}
+
+     </script>
+
+<!-- Single Project Template -->
+
+    <script type="text/x-handlebars-template" id="singleViewProjects-template">
+       
+        <div class="singleProjectContainer" id="{{objectId}}">
+          <div class="projectTitle">{{projectTitle}}</div>
+          <div class="projectStickies">{{stickies}}</div>
+          <button class="closeSingleViewBtn">Close</button>
+        </div>
+
+    </script>
+
+
+<!--  // <textarea class="stickyText" placeholder="Your brilliant words here"></textarea>
+            // <div class="stickyButtons">
+
+      // {{#each stickies}}
+      //   <div class="sticky-content">{{content}}
+      //   </div>
+      //     {{#if tags}}
+      //       <p class="tags">Tags:{{tags}}</p>
+      //     {{/if}}
+      // {{/each}} -->
+
 
     <script src="scripts/vendor.js"></script>
 

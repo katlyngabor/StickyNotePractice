@@ -2,7 +2,7 @@ var ProjectView = Backbone.View.extend({
 
 	className : 'allProjects',
 
-	events:{		
+	events:{
 		'click .addNewProjectBtn' : 'addNewProject',
 		'click .submitProjectInfo' : 'submitProject',
 		'click .cancelProjectInfo' : 'cancelProject',
@@ -33,7 +33,7 @@ var ProjectView = Backbone.View.extend({
 		e.stopPropagation();
 		var projectid = $(event.target).attr('id');
 	 	App.myRouter.navigate('#project/'+projectid, { trigger: true });
-	},
+	},	
 
 	addNewProject: function(e){
 		e.preventDefault();
@@ -53,7 +53,7 @@ var ProjectView = Backbone.View.extend({
 			new_project.save(null,{
 	    success:function(new_project) {
 	     	newProjectCollection.add(new_project);
-	    }	
+	    }
 	  });
 
 	},

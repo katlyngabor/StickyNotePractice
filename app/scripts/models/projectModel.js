@@ -6,7 +6,6 @@ var ProjectModel = Parse.Object.extend({
 
 });
 
-
 var ProjectCollection = Parse.Collection.extend({
 	model: ProjectModel
 });
