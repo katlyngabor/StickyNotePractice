@@ -158,3 +158,7 @@ gulp.task('test-server', function() {
   ]).on('change', $.livereload.changed);
 
 });
+
+gulp.task('clear', function (done) {
+    return cache.clearAll(done);
+});
