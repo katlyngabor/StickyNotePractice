@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Archivo+Narrow' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light|Archivo+Narrow' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <!-- build:css styles/main.css -->
 
     <link rel="stylesheet" href="styles/main.css">
@@ -38,7 +38,7 @@
       <div id="projectsSlide">
         <button class="viewProjectsSlideBtn">View Projects</button>
         <div class="try"></div>
-      </div> 
+      </div>
 
     <div id="menu">
         <a class= "IdeaBoardBtn" href="">Idea Board |</a>
@@ -70,13 +70,13 @@
       <input type="password" id="newPasswordInput" placeholder="What's your password?"></>
       <button class="signUpBtn">Sign Up</button>
       <button class="returningUser ">Returning User?</button>
-      
+
     </script>
 
 <!-- Stickies Template -->
-     
+
     <script type="text/x-handlebars-template" id="allStickies-template">
-       
+
         <button class="addNewStickyBtn">New Idea</button>
         {{#each stickies}}
           {{#unless project}}
@@ -89,14 +89,14 @@
                 {{/if}}
             </div>
           {{/unless}}
-        {{/each}}  
-       
+        {{/each}}
+
     </script>
 
 <!-- Journals Template -->
 
     <script type="text/x-handlebars-template" id="journals-template">
-      
+
       <button class="addJournalBtn">New Journal</button>
       <div class="overlay">
         <div class="journaling">Journaling</div>
@@ -111,7 +111,7 @@
 
       {{#unless project}}
         <div class="journalContainer" rel="journal" id='{{objectId}}'style="left:{{leftLocation}}px; top:{{topLocation}}px; ">
-          <button class="deleteJournalBtn" id='{{objectId}}'>X</button>  
+          <button class="deleteJournalBtn" id='{{objectId}}'>X</button>
           <div class="journalTitleContainer">
             <button class="journalTitleBtn" id='{{objectId}}'>{{title}}</button>
           </div>
@@ -122,7 +122,7 @@
         </div>
       {{/unless}}
 
-    {{/each}} 
+    {{/each}}
 
     </script>
 
@@ -145,7 +145,7 @@
         </div>
 
     </script>
-  
+
 
 <!-- All Projects Template -->
 
@@ -165,7 +165,7 @@
             <a class="deleteProjectBtn" href="deleteProject" id="{{objectId}}">x</a>
           </div>
             <div class="titleCont">
-              <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>  
+              <a class="projectTitleBtn" id="{{objectId}}" href='projectTitle'>{{projectTitle}}</a>
             </div>
           </div>
         <div class='hoverContainer'>
@@ -181,7 +181,7 @@
 <!-- Single Project Template -->
 
     <script type="text/x-handlebars-template" id="singleViewProjects-template">
-       
+
         <div class="singleProjectContainer" id="{{objectId}}">
           <div class="projectTitle">{{projectTitle}}</div>
           <div class="projectStickies">{{stickies}}</div>
